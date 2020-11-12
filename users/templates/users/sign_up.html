@@ -1,0 +1,52 @@
+{% extends 'pawsapp/base.html'%}
+
+{% block title%}
+Users Index/ Happy Customers Page
+{% endblock%}
+
+
+{% block content%}
+
+    <div id="app">
+    
+        <h1> This is the sign up page </h1>
+        {% if taken%}
+            {{taken}}
+            <br>
+        {% endif%}
+        {% if error %}    
+        {{error}}
+        <br>
+        {% endif %}
+
+
+        <form action="" method="POST">
+            {% csrf_token %}
+    
+            <label for="username">Enter Username</label>
+                <input name="username" type="text">
+
+            <label for="email"> Enter Email Address</label>
+                <input type="email" name="email" id="email">
+            
+            <label for="re-email"> Re-Enter Email Address</label>
+                <input type="email" name="re-email" id="email2">
+                
+            
+            <label for="password">Enter Password</label>
+            <input type="password" name="password" id="pass1">
+
+            <label for="re-password">Re-Enter Password</label>
+            <input type="password" name="re-password" id="pass2">
+
+            <input type="submit" value="Sign Up">
+
+
+
+        </form>
+    </div>
+
+
+{% endblock%}
+    
+    

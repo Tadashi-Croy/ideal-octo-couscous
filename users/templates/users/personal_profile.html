@@ -1,0 +1,36 @@
+{% extends 'pawsapp/base.html'%}
+
+{% block title%}
+Users Index/ Happy Customers Page
+{% endblock%}
+
+
+{% block content%}
+    <div id="app">
+    
+        <h1> {{user}}'s Profile</h1>
+
+        {% if fill_out %}
+        <div>
+            <p>I'm going to use VUE for this section</p>    
+            
+            {{form}}
+
+
+            <p>Form Area</p>
+        </div>
+        {% endif %}
+
+        <div>
+            {{dog_form}}
+            
+            
+
+        </div>
+
+
+
+    </div>
+{% endblock%}
+    
+    

@@ -1,0 +1,51 @@
+{% extends 'pawsapp/base.html'%}
+
+{% block title%}
+Users Index/ Happy Customers Page
+{% endblock%}
+
+{% block content%}
+    {% if user.is_authenticated %}
+        Welcome {{user}}
+    {% endif %}    
+
+    <div class="about">
+        <h1>About Me Page!</h1>
+
+        <p>
+            About me
+            I have been working professionally with dogs since 2017 and spend a lot of time 
+            volunteering with local animal rescues and shelters. I have fostered dogs in the past, 
+            but since having a baby, my focus has been helping foster parents with free one on one 
+            training, group classes, learning materials, pack walks, and overnight stays. There is always 
+            more to learn from rescue dogs and nothing is more rewarding than seeing them grow into the 
+            confident, happy dogs they deserve to be! I graduated from CATCH Canine Trainers Academy in 2020. 
+            I became a CPDT-KA certified trainer in 2021, fear-free certified in 2021, and am a member of the 
+            Association of Professional Dog Trainers.
+        </p>
+ 
+        <p>
+            Positive reinforcement/training philosophy
+            The science behind dog behavior and training has come a long way over the years and now has 
+            proven the effectiveness of positive reinforcement over punishment. Teaching a dog what to do 
+            and rewarding them is more effective than simply punishing them for doing something wrong. They 
+            need to clearly know what we want them to do, and they need to want to do it. Punishment and 
+            corrections increase stress on our dogs and hurts our relationship with them. On the other hand, 
+            positive reinforcement methods make learning exciting, good behavior fun, and builds a stronger bond. 
+            Training should be enjoyable for everyone involved!
+
+            I believe in looking at each dog as a whole individual. They all are motivated by 
+            different rewards and have different mental and physical needs. By fulfilling all a dog’s needs
+             and building up confidence, they are not only happier and healthier, but ready to listen and learn!
+
+        </p>
+        
+    </div>
+
+
+
+
+    
+    
+{% endblock%}
+    

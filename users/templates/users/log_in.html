@@ -1,0 +1,33 @@
+{% extends 'pawsapp/base.html' %}
+
+{% block title %}
+Users Index/ Happy Customers Page
+{% endblock %}
+
+
+{% block content %}
+    <div id="app">
+    
+        <h1> This is the LOGIN page </h1>
+
+        <form action="{% url 'users:log_in' %}" method="POST">
+            {% csrf_token%}
+            <label for="username"> Enter Username</label>
+                <input type="text" name="username">
+
+            <label for="password"> Enter Password</label>
+                <input type="password" name="password" id="">
+
+            <input type="submit" value="Log In">
+
+
+
+        </form>
+
+
+
+
+        
+    
+    </div>
+{% endblock %}

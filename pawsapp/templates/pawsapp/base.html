@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'pawsapp/style.css'%}">
+    <script defer src="{% static 'pawsapp/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    
+    <title>
+        {% block title%}
+        {% endblock %}</title>
+
+</head>
+<body>
+    
+    <header id="base-head">
+        <div>
+            <h2>
+            <a href="{% url 'pawsapp:index' %} ">
+                
+                    Pawsitive Focus Dog Training
+                </a>
+                </h2>
+
+        
+        </div>
+
+        <div class="header-links">
+            
+
+            {% if not user.is_authenticated%}
+
+            <a href=" {% url 'users:sign_up' %}">
+                Sign Up
+            </a>
+            
+            <a href="{% url 'users:log_in' %}">
+                Log In
+            </a>
+            {% else %}
+            <a href="{% url 'pawsapp:get_deets' %}">
+                Book Appointment
+            </a>
+            
+            <a href="{% url 'users:personal_profile' %}">Profile Page</a>
+
+
+            <a href="{% url 'users:log_out' %}">
+                Log Out
+            </a>
+
+            {% endif %}
+
+            <a href="{% url 'users:index' %}">
+                About Me
+            </a>
+            
+            
+
+            <p>
+                Services
+            </p>
+            
+
+        </div>
+
+
+
+    </header>
+
+    <div id="app">
+        
+        {% block content %}
+        
+        {% endblock %}
+        
+    </div>
+
+    <footer>
+       <div class="links">
+            <a href="">
+                About Us
+            </a>
+            <a href="">
+                Local Adoption Options
+            </a>
+            <a href="https://www.familydogsnewlife.org/">
+                Family Dog New Life
+            </a>
+            <a href="">
+                Certification Website
+            </a>
+       </div>
+       <p>Pawsitive Focus Dog Training 2020&trade;</p>
+        
+    </footer>
+
+</body>
+</html>

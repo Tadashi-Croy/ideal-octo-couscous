@@ -1,0 +1,81 @@
+{% extends 'pawsapp/base.html' %}
+    
+{% block content%}
+<main>
+        <h3>Customer form</h3>
+
+
+        <form action="{% url 'pawsapp:get_deets'%}" method="post">
+            {% csrf_token%}
+            <div class="entry">
+                <div class="basic-info">
+
+                    <input  name="first_name" type="text" placeholder="Enter First Name">
+                    <input name= "last_name" type="text" placeholder="Enter Last Name">
+                    <input type="email" name="email" id="email" placeholder="Enter email address">
+                    <input type="text" name="address" id="" placeholder="Street Address" required >
+                    <input type="text" name="city" id="" placeholder="City" >
+                    <input type="text" name="state" id="" placeholder= "State" >
+                    <input type="text" name="zip_code" id="" placeholder="Zip Code" required >
+                    <input name = 'phone' type="tel" placeholder="Enter Phone Number">
+                </div>
+                
+                <div>
+                    <input type="checkbox" name="puppy-training" id="" value="Puppy Training">
+                    <label for="puppy-training"> Puppy training</label>
+                    
+                    <input type="checkbox" name="adolescent-training" id="" value="Adolescent Training">
+                    <label for="adolescent-training">Adolescent Training</label>
+
+                    <input type="checkbox" name="adult-training" id="" value="Adult Training">                    
+                    <label for="adult-training">Adult Dog Training</label>
+                    
+                    
+                    <div>
+                        <div>
+                            <h4>Enter three most convienient dates and times:</h4>
+                            <input type="date" name="date1" id="" >
+                            <input type="time" name="time1" id="">
+                        </div>
+                        <div>
+                            <input type="date" name="date2" id="" >
+                            <input type="time" name="time2" id="">
+                        </div>
+                        <div>
+                            <input type="date" name="date3" id="" >
+                            <input type="time" name="time3" id="">
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+
+
+                <div>
+                    <input type="text" name="dog_name" id="" placeholder="Name of Dog">
+                    <textarea name="dog_detail" id="" cols="20" rows="5" placeholder="Tell me about your dog" required></textarea>
+                </div>
+                                
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+            <input type="submit" value="Submit">
+
+        </form>
+
+
+
+
+
+    </main>
+{% endblock %}
