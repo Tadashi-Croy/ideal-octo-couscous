@@ -48,3 +48,7 @@ def get_deets(request):
     return render(request, 'pawsapp/customer_form.html') 
 
 
+def references(request):
+
+
+    return render(request, 'pawsapp/references_page.html')

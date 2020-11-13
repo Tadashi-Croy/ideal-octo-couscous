@@ -44,7 +44,7 @@ class Dog(models.Model):
 
     owner = models.ForeignKey(UserProfile, on_delete=CASCADE)
     dog_name= models.CharField(max_length=100, blank=True, null=True)
-    age= models.IntegerField(default=0)
+    age= models.IntegerField(default=0, blank=True, null = True)
 
     sex= models.CharField(max_length=1, choices=DOG_MF)
     size = models.CharField(max_length=1, choices=DOG_SIZE)

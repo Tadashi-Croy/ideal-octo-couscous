@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'pawsapp/style.css'%}">
     <script defer src="{% static 'pawsapp/main.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
     
     <title>
         {% block title%}
@@ -25,6 +26,9 @@
                     Pawsitive Focus Dog Training
                 </a>
                 </h2>
+
+            
+              <a href="mail: test@test.com" target='_blank'><button> Contact Me</button></a>  
 
         
         </div>
@@ -61,17 +65,20 @@
             
             
 
+           
             <p>
-                Services
+                <a href="{% url 'pawsapp:references' %}">
+                    References
+
+                </a>
             </p>
-            
 
         </div>
 
 
 
     </header>
-
+    <hr>
     <div id="app">
         
         {% block content %}
@@ -80,21 +87,30 @@
         
     </div>
 
+    <hr>
     <footer>
        <div class="links">
-            <a href="">
-                About Us
+        Looking to adopt or volunteer with a local rescue?
+
+        <a href="https://otatpdx.org/" target="_blank">
+            One Tail at a Time
+        </a>
+
+        <a href="https://streetsavvydogrescue.org/" target="_blank">
+            Street Savy Dog Rescue
+        </a>
+        
+        <a href="https://www.familydogsnewlife.org/" target="_blank">
+            Family Dog New Life
+        </a>
+
+        </div>
+        <div>
+            Certified by:
+            <a href="https://catchdogtrainers.com/who-we-are/" target="_blank">
+                Catch Dog Trainers
             </a>
-            <a href="">
-                Local Adoption Options
-            </a>
-            <a href="https://www.familydogsnewlife.org/">
-                Family Dog New Life
-            </a>
-            <a href="">
-                Certification Website
-            </a>
-       </div>
+        </div>
        <p>Pawsitive Focus Dog Training 2020&trade;</p>
         
     </footer>

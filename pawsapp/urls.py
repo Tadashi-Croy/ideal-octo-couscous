@@ -6,4 +6,5 @@ app_name = 'pawsapp'
 urlpatterns = [
     path('', views.index, name = 'index'),
     path('get_deets', views.get_deets, name='get_deets'),
+    path('references/', views.references, name ='references')
 ]

@@ -6,29 +6,109 @@ Users Index/ Happy Customers Page
 
 
 {% block content%}
-    <div id="app">
-    
+    <div>
+        {% csrf_token%}
         <h1> {{user}}'s Profile</h1>
 
-        {% if fill_out %}
+        
         <div>
             <p>I'm going to use VUE for this section</p>    
             
-            {{form}}
+            <!-- {{form}} -->
+            <div>
+                <button  @click= 'update = !update' > Update Contact Information?</button>
+            </div>
+            <div v-if='update'>
+                <button>This appears</button>
+                    
+                <div>
+                        <div>
+                            <label for="phone_number">Phone Number:</label>
+                            <input v-model="phone_number" name="phone_number">
+                        </div>
 
-
-            <p>Form Area</p>
+                        <div>
+                            <label for="first_name">First Name:</label>
+                            <input v-model="first_name" name="first_name">
+                        </div>
+                        <div>
+                            <label for="last_name">Last Name:</label>
+                            <input v-model="last_name" name="last_name">
+                        </div>
+                        <div>
+                            <label for="address">Address:</label>
+                            <input v-model="address" name="address">
+                        </div>
+                        <div>
+                            <label for="city">city:</label>
+                            <input v-model="city" name="city">
+                        </div>
+                        <div>
+                            <label for="zipcode">Zipcode:</label>
+                            <input v-model="zipcode" name="zipcode">
+                        </div>
+                        <div>
+                            <label for="share_pupps">Share your Dog's Name and Photo with others? </label>
+                            <input v-model="share_pupps" name="share_pupps">
+                        </div>
+                </div>
+            </div>
         </div>
-        {% endif %}
-
+        <br>
         <div>
-            {{dog_form}}
-            
-            
+            <button  @click= 'dog_update = !dog_update' > Update Dog Information?</button>
+        </div>
+        <div v-if="dog_update">
+            <div>
+                <label for="dog_name">Dog's Name: </label>
+                <input v-model="dog_name" name="dog_name">
+            </div>
 
+            <div>
+                <label for="age">Dog's Age: </label>
+                <input v-model="age" name="age">
+            </div>
+
+            <div>
+                <label for="sex">Dog's Sex: </label>
+                <input v-model="sex" name="sex">
+            </div>
+
+            <div>
+                <label for=" size">Dog's Size: </label>
+                <input v-model="size" name="size">
+            </div>
+            <div>
+                <label for=" temperment">Dog's Temperment: </label>
+                <input v-model="temperment" name="temperment">
+            </div>
+            <div>
+                <label for="crate_trained">Crate Trained? </label>
+                <input v-model="crate_trained" name="crate_trained">
+            </div>
+            <div>
+                <label for="details">Any Other Important Details? </label>
+                <input v-model="details" name="details">
+            </div>
+        </div>
+        
+        <div v-else-if= "addNewDogBTN">
+            <h2>ADD NEW DOG</h2>
+
+
+            <button @click= 'addNewDogBTN = !addNewDogBTN' >JK</button>
+        </div>
+        <div v-else>
+            <button @click= 'addNewDogBTN = !addNewDogBTN' >New Dog</button>
+            {% for dog in dogs%}
+
+            {{dog}}
+
+            {% endfor %}
         </div>
 
-
+        <button @click= 'addNewDog'>add new</button>
+        <button @click= 'updateDog'>  update</button>
 
     </div>
 {% endblock%}

@@ -1,8 +1,10 @@
+from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth  import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile, UserProfileForm, DogForm, Dog
+import json
 
 
 # Create your views here.
@@ -71,35 +73,30 @@ def log_out(request):
 
 @login_required
 def personal_profile(request):
-    fill_out = False
     user = request.user
 
-    profile = UserProfile.objects.filter(user = user)
+    if not UserProfile.objects.filter(user = user):
 
-    print(profile)
-
-    if not profile:
-        fill_out = True
-        form = UserProfileForm
-        dog_form = DogForm
-
-        context = {
-            'form' : form,
-            'fill_out': fill_out,
-            'profile': profile,
-            'dog_form': dog_form
-        }
-        return render(request, 'users/personal_profile.html', context) 
+        return render(request, 'users/personal_profile.html')
 
     else:
-        form= UserProfileForm
+
+        profile = UserProfile.objects.get(user = user)
+        dogs = Dog.objects.filter(owner=profile)
+
         context = {
-            'form' : form,
-            'fill_out': fill_out,
-            'profile': profile
+            'dogs' : dogs,
         }
 
         return render(request, 'users/personal_profile.html', context)
 
 
+@login_required
+def update_dog(request):
+    data = request.body
+    data = str(data, 'utf-8')
+    test = json.loads(data)
+    print(test, type(test))
+    
 
+    return JsonResponse({'hello':'world'})

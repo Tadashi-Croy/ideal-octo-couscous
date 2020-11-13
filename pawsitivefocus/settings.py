@@ -124,7 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_URL = 'users:index'
+LOGIN_URL = 'users:log_in'
 LOGOUT_REDIRECT_URL= 'pawsapp:index'
 
 # AUTH_USER_MODEL='users.User'
