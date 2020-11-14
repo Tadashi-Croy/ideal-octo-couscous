@@ -15,91 +15,99 @@ Users Index/ Happy Customers Page
             <p>I'm going to use VUE for this section</p>    
             
             <!-- {{form}} -->
-            <div>
+            <div v-if="!dog_update">
                 <button  @click= 'update = !update' > Update Contact Information?</button>
             </div>
             <div v-if='update'>
-                <button>This appears</button>
+                <button @click= 'personalProfiler("update_user/")'>This appears</button>
                     
                 <div>
                         <div>
                             <label for="phone_number">Phone Number:</label>
-                            <input v-model="phone_number" name="phone_number">
+                            <input v-model="phone_number" name="phone_number" required>
                         </div>
 
                         <div>
                             <label for="first_name">First Name:</label>
-                            <input v-model="first_name" name="first_name">
+                            <input v-model="first_name" name="first_name" required>
                         </div>
                         <div>
                             <label for="last_name">Last Name:</label>
-                            <input v-model="last_name" name="last_name">
+                            <input v-model="last_name" name="last_name" required>
                         </div>
                         <div>
                             <label for="address">Address:</label>
-                            <input v-model="address" name="address">
+                            <input v-model="address" name="address" required>
                         </div>
                         <div>
                             <label for="city">city:</label>
-                            <input v-model="city" name="city">
+                            <input v-model="city" name="city" required>
                         </div>
                         <div>
                             <label for="zipcode">Zipcode:</label>
-                            <input v-model="zipcode" name="zipcode">
+                            <input v-model="zipcode" name="zipcode" required>
                         </div>
                         <div>
                             <label for="share_pupps">Share your Dog's Name and Photo with others? </label>
-                            <input v-model="share_pupps" name="share_pupps">
+                            <input v-model="share_pupps" name="share_pupps" required>
                         </div>
                 </div>
             </div>
         </div>
         <br>
-        <div>
-            <button  @click= 'dog_update = !dog_update' > Update Dog Information?</button>
+        <div v-if= '!update'>
+            <button  @click= 'dog_update = !dog_update' > Update Dog Information/Add new Dog</button>
         </div>
+
         <div v-if="dog_update">
             <div>
                 <label for="dog_name">Dog's Name: </label>
-                <input v-model="dog_name" name="dog_name">
+                <input v-model="dog_name" name="dog_name" required>
             </div>
 
             <div>
                 <label for="age">Dog's Age: </label>
-                <input v-model="age" name="age">
+                <input type="number" v-model="age" name="age" min="0" required>
             </div>
 
             <div>
-                <label for="sex">Dog's Sex: </label>
-                <input v-model="sex" name="sex">
+                <label for="sex"> Dog's Sex: </label>
+                
+                <select v-model="sex" name="sex" id="sex" required>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
             </div>
 
             <div>
                 <label for=" size">Dog's Size: </label>
-                <input v-model="size" name="size">
+                <select v-model= "size"  name="size" id="size" required>
+                    <option value="S">Small</option>
+                    <option value="M">Medium</option>
+                    <option value="L">Large</option>
+                </select>
             </div>
+            
             <div>
                 <label for=" temperment">Dog's Temperment: </label>
-                <input v-model="temperment" name="temperment">
+                <input v-model="temperment" name="temperment" required>
             </div>
             <div>
                 <label for="crate_trained">Crate Trained? </label>
-                <input v-model="crate_trained" name="crate_trained">
+                <select v-model="crate_trained" name="crate_trained" id="crate_trained" required>
+                    <option value="True">Yes</option>
+                    <option value="False">No</option>
+                </select>
             </div>
             <div>
                 <label for="details">Any Other Important Details? </label>
-                <input v-model="details" name="details">
+                <input v-model="details" name="details" required>
             </div>
+            <button @click= 'personalProfiler("new_dog/")'>add new</button>
+            <button @click= 'personalProfiler("update_dog/")'>  update</button>
         </div>
         
-        <div v-else-if= "addNewDogBTN">
-            <h2>ADD NEW DOG</h2>
-
-
-            <button @click= 'addNewDogBTN = !addNewDogBTN' >JK</button>
-        </div>
-        <div v-else>
-            <button @click= 'addNewDogBTN = !addNewDogBTN' >New Dog</button>
+        <div>
             {% for dog in dogs%}
 
             {{dog}}
@@ -107,8 +115,7 @@ Users Index/ Happy Customers Page
             {% endfor %}
         </div>
 
-        <button @click= 'addNewDog'>add new</button>
-        <button @click= 'updateDog'>  update</button>
+        
 
     </div>
 {% endblock%}

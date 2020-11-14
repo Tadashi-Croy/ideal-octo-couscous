@@ -37,30 +37,29 @@ main_app = new Vue({
   
     },
     methods: {
-        addNewDog: async function(){
+        personalProfiler: async function(url_path){
             console.log('AddNewDog Function')
             
             let token = document.getElementsByName('csrfmiddlewaretoken')[0]
             
             let config = {
                 method: 'POST',
-                url : 'update_dog/',
-                data: {  
-                phone_number: this.phone_number,
-                first_name: this.first_name,
-                last_name: this.last_name,
-                address: this.address,
-                city: this.city,
-                zipcode: this.zipcode,
-                share_pupps: this.share_pupps,
-                dog_name: this.dog_name,
-                age: this.age,
-                sex: this.sex,
-                size: this.size,
-                temperment: this.temperment,
-                crate_trained: this.crate_trained,
-                details: this.details,
-                hello: 'goodbye'
+                url : url_path,
+                data: {
+                    phone_number: this.phone_number,
+                    first_name: this.first_name,
+                    last_name: this.last_name,
+                    address: this.address,
+                    city: this.city,
+                    zipcode: this.zipcode,
+                    share_pupps: this.share_pupps,
+                    dog_name: this.dog_name,
+                    age: this.age,
+                    sex: this.sex,
+                    size: this.size,
+                    temperment: this.temperment,
+                    crate_trained: this.crate_trained,
+                    details: this.details,
                 },
                 headers:{
                     'X-CSRFToken': token.value
