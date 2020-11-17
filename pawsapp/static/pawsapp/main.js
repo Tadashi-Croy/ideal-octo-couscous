@@ -12,7 +12,10 @@ main_app = new Vue({
     el:'#app',
     delimiters: ['[[', ']]'],
     data:{
-        message: 'test',
+
+        // Profile Page Data
+
+        message: '',
         update: false,
         dog_update: false,
         addNewDogBTN: false,
@@ -29,7 +32,13 @@ main_app = new Vue({
         size:'',
         temperment:'',
         crate_trained:'',
-        details:''
+        details:'',
+        tester: '',
+
+        // Customer Form Data 
+
+        heardAbout: '',
+        listOfHeard: ['Google', 'Facebook', 'Rover', ]
 
 
     },
@@ -42,6 +51,9 @@ main_app = new Vue({
             
             let token = document.getElementsByName('csrfmiddlewaretoken')[0]
             
+
+
+
             let config = {
                 method: 'POST',
                 url : url_path,
@@ -70,6 +82,7 @@ main_app = new Vue({
             
             let response = await axios(config) 
 
+            main_app.message = response.data.message
             console.log(response)
 
             this.phone_number= '',
@@ -88,14 +101,61 @@ main_app = new Vue({
             this.details=''
 
 
+            main_app.Updater()
+
         },
-        updateDog: function(){
-            console.log('UpdateDog Function')
+        Updater: async function(){
+            let url = 'new_dog/'
+            let data = await axios.get(url)
+            
+            let body = data.data
 
+            main_app.tester = body
+        },
+        
 
-
-        }
     },
+    updated() {
+      
+        
+
+        
+
+    },
+    
+    created(){
+        
+        let a  = async function(){
+            let page = window.location.href
+            let url = 'new_dog/'
+            if (page.endsWith('personal_profile/')){
+
+                let data = await axios.get(url)
+                
+                let body = data.data
+
+
+                main_app.tester = body
+            }
+
+
+
+            
+        }
+
+        a()
+        
+        
+
+
+        
+    }
+
+
+
+
+
+
 
 })
 

@@ -93,6 +93,35 @@ def personal_profile(request):
 
 @login_required
 def new_dog(request):
+
+    if request.method == 'GET':
+        user = request.user
+        dog_dict = {}
+        count = 0
+        user_profile = UserProfile.objects.get(user=user)
+        dogs = Dog.objects.filter(owner=user_profile)
+
+        for dog in dogs:
+            # print(dog.dog_name)
+            add = {
+                'name':dog.dog_name,
+                'age': dog.age,
+                'sex': dog.sex,
+                'size': dog.size,
+                'temperment': dog.temperment,
+                'crate_trained': dog.crate_trained,
+                'details': dog.details                
+                }
+
+            dog_dict.update({count:add})
+            count += 1
+            
+        
+
+        return JsonResponse(dog_dict)
+
+    
+
     data = request.body
     data = str(data, 'utf-8')
     form = json.loads(data)
@@ -106,10 +135,13 @@ def new_dog(request):
     details = form.get('details')
     user_profile = UserProfile.objects.get_or_create(user = request.user)[0]
     
-    if not age.isdigit() or sex not in 'MF' or size not in 'SML':
+    if not age.isdigit() or sex not in 'MF' or size not in 'SML' or dog_name == '':
         return JsonResponse({'message':'Invalid Input'})
 
-    added = Dog.objects.filter(dog_name = dog_name).exists()
+    added = Dog.objects.filter(owner = user_profile, dog_name = dog_name).exists()
+    added2 = Dog.objects.filter(owner = user_profile, dog_name = dog_name)
+
+    print(f'added: {added} \n added2: {added2}')
 
 
     if added:
@@ -125,7 +157,7 @@ def new_dog(request):
 
 
 
-# Updating the User Profile
+# NEED USER PROFILE VALIDATION, USE VUE?
 
 
 @login_required
@@ -133,22 +165,44 @@ def update_user(request):
     data = request.body
     data = str(data, 'utf-8')
     form = json.loads(data)
-
+    count = 0
+    message = 'User Profile Updated!'
     user = request.user
-    phone_number = form.get('phone_number')
-    first_name= form.get('first_name')
-    last_name= form.get('last_name')
-    address= form.get('address')
-    city= form.get('city')
-    zipcode= form.get('zipcode')
-    share_pupps = form.get('share_pupps')
-
+    user_dict = {
+                'phone_number' : form.get('phone_number'),
+                'first_name': form.get('first_name'),
+                'last_name': form.get('last_name'),
+                'address' : form.get('address'),
+                'city' : form.get('city'),
+                'zipcode': form.get('zipcode'),
+                'share_pupps' : form.get('share_pupps')
+                }
     user_profile = UserProfile.objects.get_or_create(user=user)[0]
-    updated_user = UserProfile.objects.filter(user_profile).update(user=user, phone_number=phone_number, first_name=first_name, last_name=last_name,
-    address=address, city=city, zipcode=zipcode, share_pupps=share_pupps)
-    update_user.save()    
 
-    return JsonResponse({'message':'User Profile Updated!'})
+    updated_user = UserProfile.objects.filter(user=user).values()
+
+
+
+
+    for item in updated_user:
+        for thing in item:
+
+            if thing in user_dict:
+                if not user_dict[thing]:
+                    user_dict[thing] = item[thing]
+
+                    count += 1
+
+    if count == 7:
+        message = 'No Data Input'    
+    print(user_dict)
+
+    updated_user = UserProfile.objects.filter(user =user).update(user=user, phone_number=user_dict['phone_number'], first_name=user_dict['first_name'], last_name= user_dict['last_name'],
+                    address=user_dict['address'], city=user_dict['city'], zipcode=user_dict['zipcode'], share_pupps= user_dict['share_pupps'])
+    
+    # updated_user.save()    
+
+    return JsonResponse({'message': message })
 
 @login_required
 def update_dog(request):
@@ -160,10 +214,14 @@ def update_dog(request):
 
     dog_name = form.get('dog_name').title
     age = form.get('age')
+
+    if not age.isdigit():
+        return JsonResponse({'message': 'Invalid Data Entry'})
+
     sex = form.get('sex')
     size = form.get('size')
     temperment = form.get('temperment') 
-    crate_trained = form.get('crate_trained')
+    crate_trained = bool(form.get('crate_trained'))
     details = form.get('details')
     
     user_profile = UserProfile.objects.get_or_create(user=request.user)[0]

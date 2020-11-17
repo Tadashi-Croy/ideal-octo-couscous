@@ -10,13 +10,23 @@ from users.models import UserProfile, Dog
 
 class Appointment(models.Model):
 
-    owner = models.ForeignKey(User, on_delete=CASCADE)
+    owner = models.CharField(max_length=100)
+    email = models.EmailField(max_length= 50,blank=True, null=True)
+    address= models.CharField(max_length= 50, blank=True, null=True)
+    city = models.CharField(max_length= 50, blank=True, null=True)
+    phone = models.CharField(max_length= 50, blank=True, null=True)
+    puppy_training = models.BooleanField(default=False)
+    adolescent_training = models.BooleanField(default=False)
+    adult_training = models.BooleanField(default=False)
+    dog_detail = models.CharField(max_length=500, blank=True, null=True)
+    heard_about = models.CharField(max_length=100, default='Google')
+    dog_name = models.CharField(max_length=50, blank=True, null=True)
     req_appt1 = models.DateTimeField( blank=True, null=True )
     req_appt2 = models.DateTimeField( blank=True, null=True)
     req_appt3 = models.DateTimeField( blank=True, null=True)
 
-    appt_dog = models.ForeignKey(Dog, on_delete=CASCADE)
+    
 
     def __str__(self):
-        return  f'{self.owner}: {self.appt_dog}'
+        return  f'{self.email}: {self.dog_name}'
 

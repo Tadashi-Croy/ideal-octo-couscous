@@ -8,11 +8,13 @@ Users Index/ Happy Customers Page
 {% block content%}
     <div>
         {% csrf_token%}
-        <h1> {{user}}'s Profile</h1>
+        <h1 id="profileID "> {{user}}'s Profile</h1>
 
         
         <div>
-            <p>I'm going to use VUE for this section</p>    
+            <p>I'm going to use VUE for this section</p>   
+            
+            <div v-if="message"> [[message]]</div>
             
             <!-- {{form}} -->
             <div v-if="!dog_update">
@@ -24,32 +26,34 @@ Users Index/ Happy Customers Page
                 <div>
                         <div>
                             <label for="phone_number">Phone Number:</label>
-                            <input v-model="phone_number" name="phone_number" required>
+                            <input type="tel" v-model="phone_number" name="phone_number">
                         </div>
-
                         <div>
                             <label for="first_name">First Name:</label>
-                            <input v-model="first_name" name="first_name" required>
+                            <input v-model="first_name" name="first_name" >
                         </div>
                         <div>
                             <label for="last_name">Last Name:</label>
-                            <input v-model="last_name" name="last_name" required>
+                            <input v-model="last_name" name="last_name" >
                         </div>
                         <div>
                             <label for="address">Address:</label>
-                            <input v-model="address" name="address" required>
+                            <input v-model="address" name="address" >
                         </div>
                         <div>
                             <label for="city">city:</label>
-                            <input v-model="city" name="city" required>
+                            <input v-model="city" name="city" >
                         </div>
                         <div>
                             <label for="zipcode">Zipcode:</label>
-                            <input v-model="zipcode" name="zipcode" required>
+                            <input v-model="zipcode" name="zipcode" >
                         </div>
                         <div>
                             <label for="share_pupps">Share your Dog's Name and Photo with others? </label>
-                            <input v-model="share_pupps" name="share_pupps" required>
+                            <select v-model="share_pupps" name="share_pupps">
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
                         </div>
                 </div>
             </div>
@@ -62,18 +66,18 @@ Users Index/ Happy Customers Page
         <div v-if="dog_update">
             <div>
                 <label for="dog_name">Dog's Name: </label>
-                <input v-model="dog_name" name="dog_name" required>
+                <input v-model="dog_name" name="dog_name" placeholder = 'required'>
             </div>
 
             <div>
                 <label for="age">Dog's Age: </label>
-                <input type="number" v-model="age" name="age" min="0" required>
+                <input type="number" v-model="age" name="age" min="0" placeholder ='required'>
             </div>
 
             <div>
                 <label for="sex"> Dog's Sex: </label>
                 
-                <select v-model="sex" name="sex" id="sex" required>
+                <select v-model="sex" name="sex" id="sex" placeholder = 'required' >
                     <option value="M">Male</option>
                     <option value="F">Female</option>
                 </select>
@@ -81,7 +85,8 @@ Users Index/ Happy Customers Page
 
             <div>
                 <label for=" size">Dog's Size: </label>
-                <select v-model= "size"  name="size" id="size" required>
+                <select v-model= "size"  name="size" id="size">
+                    <option value="" disabled> Size Required</option>
                     <option value="S">Small</option>
                     <option value="M">Medium</option>
                     <option value="L">Large</option>
@@ -107,12 +112,43 @@ Users Index/ Happy Customers Page
             <button @click= 'personalProfiler("update_dog/")'>  update</button>
         </div>
         
-        <div>
-            {% for dog in dogs%}
+        <div v-for="(item, index) in tester" :key="index">
 
-            {{dog}}
+            <h3>Dog Name: [[item.name]]</h3>
+                <ul>
+                    <li>
+                        Age: [[item.age]]
+                    </li>
+                    <li>
+                        Sex: [[item.sex]]
+                    </li>
+                    <li>
+                        Size: [[item.size]]
+                    </li>
+                    <li>
+                        Temperment: <span v-if="item.temperment">[[item.temperment]] </span>
+                        <span v-else>Not Added</span>
 
-            {% endfor %}
+                    </li>
+                    <li>
+                        Crate Trained: <span v-if="item.temperment">[[item.crate_trained]] </span>
+                        <span v-else>Not Added</span>
+                        
+
+                    </li>
+                    <li>
+                        Extra Details: [[item.details]]
+
+                    </li>
+
+                </ul>
+
+
+
+
+
+
+
         </div>
 
         
