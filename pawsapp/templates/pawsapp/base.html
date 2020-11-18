@@ -19,7 +19,7 @@
 <body>
     
     <header id="base-head">
-        <div>
+        <div class="hero"> 
             <h2>
             <a href="{% url 'pawsapp:index' %} ">
                 
@@ -28,14 +28,14 @@
                 </h2>
 
             
-              <a href="mail: test@test.com" target='_blank'><button> Contact Me</button></a>  
+            <a href="mail: test@test.com" target='_blank'> <button> Contact Me</button></a>  
 
         
         </div>
 
         <div class="header-links">
             
-
+            
             <a href="{% url 'pawsapp:get_deets' %}">
                 Book Appointment
             </a>
@@ -79,6 +79,8 @@
 
 
     </header>
+
+
     <hr>
     <div id="app">
         
@@ -90,29 +92,35 @@
 
     <hr>
     <footer>
-       <div class="links">
-        Looking to adopt or volunteer with a local rescue?
+        <div class="links">
+            <p>
+                Looking to adopt or volunteer with a local rescue?
+                
+            </p>
+            <div>
 
-        <a href="https://otatpdx.org/" target="_blank">
-            One Tail at a Time
-        </a>
-
-        <a href="https://streetsavvydogrescue.org/" target="_blank">
-            Street Savy Dog Rescue
-        </a>
-        
-        <a href="https://www.familydogsnewlife.org/" target="_blank">
-            Family Dog New Life
-        </a>
+                <a href="https://otatpdx.org/" target="_blank">
+                    One Tail at a Time
+                </a>
+                
+                <a href="https://streetsavvydogrescue.org/" target="_blank">
+                    Street Savy Dog Rescue
+                </a>
+                
+                <a href="https://www.familydogsnewlife.org/" target="_blank">
+                    Family Dog New Life
+                </a>
+                
+            </div>
 
         </div>
-        <div>
+        <div class="cert">
             Certified by:
             <a href="https://catchdogtrainers.com/who-we-are/" target="_blank">
                 Catch Dog Trainers
             </a>
+            <p>Pawsitive Focus Dog Training 2020&trade;</p>
         </div>
-       <p>Pawsitive Focus Dog Training 2020&trade;</p>
         
     </footer>
 

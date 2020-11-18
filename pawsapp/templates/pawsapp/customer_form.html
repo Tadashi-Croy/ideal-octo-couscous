@@ -1,117 +1,156 @@
 {% extends 'pawsapp/base.html' %}
     
+{% block title%}
+
+Make an Appointment
+
+{% endblock%}
+
+
+
 {% block content%}
-<main>
-        <h3>Customer form</h3>
+<main class="customer-form-body">
+        <div class="customer-form-header">
 
-        {% if info  %}
-           <h3>{{info}} for {{dog_name}}</h3> 
+            <p>Book An Appointment:</p>
 
-        {% endif %}
+            {% if info  %}
+            <h4>{{info}}
 
-        <form action="{% url 'pawsapp:get_deets'%}" method="post">
-            {% csrf_token%}
-            <div class="entry">
-                <div class="basic-info">
+                {% if dog_name%}
+                for {{dog_name}}
+                {% endif %}
+            </h4> 
 
-                    <label for="first_name"> First Name</label>
-                    <input  name="first_name" type="text" placeholder="Enter First Name">
-                    
-                    
-                    <label for="last_name"> Last Name</label>
-                    <input name= "last_name" type="text" placeholder="Enter Last Name">
+            {% endif %}
+        </div>
+        <div class="customer-form">
 
-
-                    <label for="email"> Email Address </label>
-                    <input type="email" name="email" id="email" placeholder="Enter email address">
-
-                    <label for="address"> Enter Street Address</label>
-                    <input type="text" name="address" id="" placeholder="Street Address">
-                    
-                    <label for="city"> Enter City</label>
-                    <input type="text" name="city" id="" placeholder="City" >
-                    
-                    <label for="phone"> Enter Phone Number</label>
-                    <input name = 'phone' type="tel" placeholder="Enter Phone Number">
-                </div>
+            <form action="{% url 'pawsapp:get_deets'%}" method="post">
+                {% csrf_token%}
                 
-                <div>
-                    <input type="checkbox" name="puppy_training" id="" value="True">
-                    <label for="puppy_training"> Puppy training</label>
-                    
-                    <input type="checkbox" name="adolescent_training" id="" value="True">
-                    <label for="adolescent_training">Adolescent Training</label>
+                <div class="entry">
 
-                    <input type="checkbox" name="adult_training" id="" value="True">                    
-                    <label for="adult_training">Adult Dog Training</label>
+
+
+                    <div class="basic-info">
+                        <div>
+                            <label for="first_name"> First Name</label>
+                            <input  name="first_name" type="text" placeholder="Enter First Name">
+                        </div>
+                        
+                        <div>
+                            <label for="last_name"> Last Name</label>
+                            <input name= "last_name" type="text" placeholder="Enter Last Name">
+                        </div>
+
+                        <div>
+                            <label for="email"> Email Address </label>
+                            <input type="email" name="email" id="email" placeholder="Enter email address">
+                        </div>
+                        
+                        <div>
+                            <label for="address"> Enter Street Address</label>
+                            <input type="text" name="address" id="" placeholder="Street Address">
+                        </div>
+
+                        <div>
+                            <label for="city"> Enter City</label>
+                            <input type="text" name="city" id="" placeholder="City" >
+                        </div>
+
+                        <div>
+                            <label for="phone"> Enter Phone Number</label>
+                            <input name = 'phone' type="tel" placeholder="Enter Phone Number">
+                        </div>
+
+                    </div>
                     
+
+
+
+                    <div class="training-checks">
+
+                        <input type="checkbox" name="puppy_training" id="" value="True">
+                        <label for="puppy_training"> Puppy training</label>
+                        
+                        <input type="checkbox" name="adolescent_training" id="" value="True">
+                        <label for="adolescent_training">Adolescent Training</label>
+                        
+                        <input type="checkbox" name="adult_training" id="" value="True">                    
+                        <label for="adult_training">Adult Dog Training</label>
+                        
+                        
+                        <div class=" appt-times">
+                            <h4>Enter up to three convienient dates and times for the training sessions:</h4>
+                            
+                            <div class="time">
+                                <label for="time1"> Required</label>
+                                <input type="datetime-local" name="time1" id="time1" placeholder="Time 1">
+                                
+                            </div>
+                            <div class="time">
+                                <input type="datetime-local" name="time2" id="time2" placeholder="Time 1">
+                                
+                            </div>
+                            <div class="time">
+                                <input type="datetime-local" name="time3" id="time3">
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    <div class="dog-details">
+                        <input type="text" name="dog_name" id="" placeholder="Name of Dog">
+                        <textarea name="dog_detail" id="" cols="20" rows="5" placeholder="Tell me about your dog" ></textarea>
+                    </div>
                     
                     <div>
-                        <div>
-                            <h4>Enter three most convienient dates and times:</h4>
-                            <input type="datetime-local" name="time1" id="time1" placeholder="Time 1">
+
+                        <select v-model="heardAbout" name="heard_about" id="">  
+                            
+                            <option value="" disabled>How did you hear about us?</option>
+                            <option value="Google">Google</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Local Adoption">Local Adoption Agency</option>
+                            <option value="Rover">Rover</option>
+                            <option value="Referral">Personal Referral</option>
+                            <option value="Other">Other</option>
+                            
+                            
+                        </select>
                         
-                        </div>
-                        <div>
-                            <input type="datetime-local" name="time2" id="time2" placeholder="Time 1">
-                           
-                        </div>
-                        <div>
-                            <input type="datetime-local" name="time3" id="time3">
+                        
+                        <div v-if="heardAbout">
+                            
+                            <label  for="referred"> [[heardAbout]] </label>
+                            <input v-if="heardAbout === 'Referral' " type="text" name="referred" id="referred">
+                            <input v-if="heardAbout === 'Other' " type="text" name="other" id="other">
                             
                         </div>
                         
                     </div>
+                    
+                    
+                        
                 </div>
-
-
-
-
+                    
+                
                 <div>
-                    <input type="text" name="dog_name" id="" placeholder="Name of Dog">
-                    <textarea name="dog_detail" id="" cols="20" rows="5" placeholder="Tell me about your dog" ></textarea>
+
+                    <input type="submit" value="Submit">
                 </div>
-                                
-
-                <select v-model="heardAbout" name="heard_about" id="">  
-                    
-                    <option value="" disabled>How did you hear about us?</option>
-                    <option value="Google">Google</option>
-                    <option value="Facebook">Facebook</option>
-                    <option value="Local Adoption">Local Adoption Agency</option>
-                    <option value="Rover">Rover</option>
-                    <option value="Referral">Personal Referral</option>
-                    <option value="Other">Other</option>
-
-                    
-                </select>
-
-
-                <div v-if="heardAbout">
-
-                    <label  for="referred"> [[heardAbout]] </label>
-                    <input v-if="heardAbout === 'Referral' " type="text" name="referred" id="referred">
-                    <input v-if="heardAbout === 'Other' " type="text" name="other" id="other">
-
-                </div>
-
-
-
-
-            </div>
-
-
-
-
-
-
-            <input type="submit" value="Submit">
-
-        </form>
-
-
-
-
-
+                
+            </form>
+        </div>
+            
+            
+            
+            
+            
     </main>
 {% endblock %}

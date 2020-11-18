@@ -4,8 +4,35 @@ base_app = new Vue({
     delimiters: ['[[',']]'],
     data:{
         stuff: 'things',
-    }
+    },
+    methods:{
+
+
+
+
+
+
+    },
+    
+
+
+
+
+
+
+
+
+
 })
+
+
+
+
+
+
+
+
+
 
 
 main_app = new Vue({

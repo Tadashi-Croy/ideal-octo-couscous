@@ -7,6 +7,7 @@ from .models import UserProfile, UserProfileForm, DogForm, Dog
 import json
 
 
+
 # Create your views here.
 
 
@@ -62,6 +63,10 @@ def log_in(request):
 
         if user_auth:
             login(request, user_auth)
+            request.session.set_expiry(60)
+            print(request.session.get_expiry_age())
+
+
             return redirect('users:personal_profile')    
 
     return render(request, 'users/log_in.html')
