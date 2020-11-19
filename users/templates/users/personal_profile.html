@@ -6,115 +6,156 @@ Users Index/ Happy Customers Page
 
 
 {% block content%}
-    <div>
+    <div class="personal-profile-page-body" >
         {% csrf_token%}
         <h1 id="profileID "> {{user}}'s Profile</h1>
 
-        
-        <div>
-            <p>I'm going to use VUE for this section</p>   
-            
-            <div v-if="message"> [[message]]</div>
-            
-            <!-- {{form}} -->
-            <div v-if="!dog_update">
-                <button  @click= 'update = !update' > Update Contact Information?</button>
+        <div v-if="userInfo" class="user-profile">
+            <h4>Current Contact Information</h4>
+            <div class="users-info">
+                <p>
+                    Phone Number: <br> [[userInfo.phone_number]]
+                </p>
+                <p>
+                    First Name: <br> [[userInfo.first_name]]
+                </p>
+                <p>
+                    Last Name: <br> [[userInfo.last_name]]
+                </p>
+                <p>
+                    Address: <br> [[userInfo.address]]
+                </p>
+                <p>
+                    City: <br> [[userInfo.city]] 
+                </p>
+                <p>
+                    Zipcode: <br> [[userInfo.zipcode]]
+                </p>
+                <p>
+                    Share: <br> [[userInfo.share_pupps]]  
+                </p>
+                
+
             </div>
-            <div v-if='update'>
-                <button @click= 'personalProfiler("update_user/")'>This appears</button>
+        </div>
+
+
+
+        <div class="input-forms">
+
+                <div class="contact-update-form">   
                     
-                <div>
+                    <div v-if="message"> [[message]]</div>
+                    
+                    <!-- {{form}} -->
+                    <div v-if="!dog_update">
+                        <button  @click= 'update = !update' > Update Contact Information?</button>
+                    </div>
+                    <div class="dropped-down-form" v-if='update'>
+                        
                         <div>
-                            <label for="phone_number">Phone Number:</label>
-                            <input type="tel" v-model="phone_number" name="phone_number">
+                            <div>
+                                <label for="phone_number">Phone Number:</label>
+                                <input type="tel" v-model="phone_number" name="phone_number">
+                            </div>
+                            <div>
+                                <label for="first_name">First Name:</label>
+                                <input v-model="first_name" name="first_name" >
+                            </div>
+                            <div>
+                                <label for="last_name">Last Name:</label>
+                                <input v-model="last_name" name="last_name" >
+                            </div>
+                            <div>
+                                <label for="address">Address:</label>
+                                <input v-model="address" name="address" >
+                            </div>
+                            <div>
+                                <label for="city">city:</label>
+                                <input v-model="city" name="city" >
+                            </div>
+                            <div>
+                                <label for="zipcode">Zipcode:</label>
+                                <input v-model="zipcode" name="zipcode" >
+                            </div>
+                            <div>
+                                <label for="share_pupps">Share your Dog's Name and Photo with others? </label>
+                                <select v-model="share_pupps" name="share_pupps">
+                                    <option value="True">Yes</option>
+                                    <option value="False">No</option>
+                                </select>
+                            </div>
+                            <button @click= 'personalProfiler("update_user/")'>Update</button>
                         </div>
-                        <div>
-                            <label for="first_name">First Name:</label>
-                            <input v-model="first_name" name="first_name" >
-                        </div>
-                        <div>
-                            <label for="last_name">Last Name:</label>
-                            <input v-model="last_name" name="last_name" >
-                        </div>
-                        <div>
-                            <label for="address">Address:</label>
-                            <input v-model="address" name="address" >
-                        </div>
-                        <div>
-                            <label for="city">city:</label>
-                            <input v-model="city" name="city" >
-                        </div>
-                        <div>
-                            <label for="zipcode">Zipcode:</label>
-                            <input v-model="zipcode" name="zipcode" >
-                        </div>
-                        <div>
-                            <label for="share_pupps">Share your Dog's Name and Photo with others? </label>
-                            <select v-model="share_pupps" name="share_pupps">
-                                <option value="True">Yes</option>
-                                <option value="False">No</option>
-                            </select>
-                        </div>
+                    </div>
+                </div>
+            
+            <br>
+
+            
+            <div class="update-dog-btn" v-if= '!update'>
+                <button  @click= 'dog_update = !dog_update' > Update Dog Information/Add new Dog</button>
+            </div>
+            <div class="contact-update-form" v-if="dog_update">
+                <div class="dropped-down-form">
+
+                    <div>
+                        <label for="dog_name">Dog's Name: </label>
+                        <input v-model="dog_name" name="dog_name" placeholder = 'required'>
+                    </div>
+                    
+                    <div>
+                        <label for="age">Dog's Age: </label>
+                        <input type="number" v-model="age" name="age" min="0" placeholder ='required'>
+                    </div>
+                    
+                    <div>
+                        <label for="sex"> Dog's Sex: </label>
+                        
+                        <select v-model="sex" name="sex" id="sex" placeholder = 'required' >
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for=" size">Dog's Size: </label>
+                        <select v-model= "size"  name="size" id="size">
+                            <option value="" disabled> Size Required</option>
+                            <option value="S">Small</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Large</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for=" temperment">Dog's Temperment: </label>
+                        <input v-model="temperment" name="temperment" required>
+                    </div>
+                    <div>
+                        <label for="crate_trained">Crate Trained? </label>
+                        <select v-model="crate_trained" name="crate_trained" id="crate_trained" required>
+                            <option value="True">Yes</option>
+                            <option value="False">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="details">Any Other Important Details? </label>
+                        <input v-model="details" name="details" required>
+                    </div>
+                    <button @click= 'personalProfiler("new_dog/")'>add new</button>
+                    <button @click= 'personalProfiler("update_dog/")'>  update</button>
                 </div>
             </div>
         </div>
-        <br>
-        <div v-if= '!update'>
-            <button  @click= 'dog_update = !dog_update' > Update Dog Information/Add new Dog</button>
-        </div>
 
-        <div v-if="dog_update">
-            <div>
-                <label for="dog_name">Dog's Name: </label>
-                <input v-model="dog_name" name="dog_name" placeholder = 'required'>
-            </div>
 
-            <div>
-                <label for="age">Dog's Age: </label>
-                <input type="number" v-model="age" name="age" min="0" placeholder ='required'>
-            </div>
-
-            <div>
-                <label for="sex"> Dog's Sex: </label>
+        <hr>
+        <h3>Dogs you have registered:</h3>
+        <div class="dog-cards">
+            <div class="dog" v-for="(item, index) in tester" :key="index">
                 
-                <select v-model="sex" name="sex" id="sex" placeholder = 'required' >
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                </select>
-            </div>
-
-            <div>
-                <label for=" size">Dog's Size: </label>
-                <select v-model= "size"  name="size" id="size">
-                    <option value="" disabled> Size Required</option>
-                    <option value="S">Small</option>
-                    <option value="M">Medium</option>
-                    <option value="L">Large</option>
-                </select>
-            </div>
-            
-            <div>
-                <label for=" temperment">Dog's Temperment: </label>
-                <input v-model="temperment" name="temperment" required>
-            </div>
-            <div>
-                <label for="crate_trained">Crate Trained? </label>
-                <select v-model="crate_trained" name="crate_trained" id="crate_trained" required>
-                    <option value="True">Yes</option>
-                    <option value="False">No</option>
-                </select>
-            </div>
-            <div>
-                <label for="details">Any Other Important Details? </label>
-                <input v-model="details" name="details" required>
-            </div>
-            <button @click= 'personalProfiler("new_dog/")'>add new</button>
-            <button @click= 'personalProfiler("update_dog/")'>  update</button>
-        </div>
-        
-        <div v-for="(item, index) in tester" :key="index">
-
-            <h3>Dog Name: [[item.name]]</h3>
+                <h3>Dog Name: [[item.name]]</h3>
                 <ul>
                     <li>
                         Age: [[item.age]]
@@ -128,32 +169,32 @@ Users Index/ Happy Customers Page
                     <li>
                         Temperment: <span v-if="item.temperment">[[item.temperment]] </span>
                         <span v-else>Not Added</span>
-
+                        
                     </li>
                     <li>
                         Crate Trained: <span v-if="item.temperment">[[item.crate_trained]] </span>
                         <span v-else>Not Added</span>
                         
-
+                        
                     </li>
                     <li>
                         Extra Details: [[item.details]]
-
+                        
                     </li>
-
+                    
                 </ul>
-
-
-
-
-
-
-
+                
+                
+            </div>
+                
+                
+                
+            
+            
         </div>
-
         
-
+        
+        
     </div>
 {% endblock%}
-    
-    
+

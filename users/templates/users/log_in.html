@@ -6,9 +6,15 @@ Users Index/ Happy Customers Page
 
 
 {% block content %}
-    <div id="app">
+    <div class="log-in-body">
     
-        <h1> This is the LOGIN page </h1>
+        <h2> Log In</h2>
+        <hr>
+        <h3 class="required">
+            {% if info %}
+            {{info}}
+            {% endif %}
+        </h3>
 
         <form action="{% url 'users:log_in' %}" method="POST">
             {% csrf_token%}

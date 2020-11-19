@@ -65,7 +65,8 @@ main_app = new Vue({
         // Customer Form Data 
 
         heardAbout: '',
-        listOfHeard: ['Google', 'Facebook', 'Rover', ]
+        listOfHeard: ['Google', 'Facebook', 'Rover', ],
+        userInfo: ''
 
 
     },
@@ -111,6 +112,7 @@ main_app = new Vue({
 
             main_app.message = response.data.message
             console.log(response)
+            main_app.userInfo = response.data.user_info
 
             this.phone_number= '',
             this.first_name= '',
@@ -169,8 +171,27 @@ main_app = new Vue({
 
             
         }
+        let b  = async function(){
+            let page = window.location.href
+            let url = 'update_user/'
+            if (page.endsWith('personal_profile/')){
+
+                let data = await axios.get(url)
+                
+                let body = data.data
+                main_app.userInfo = body
+                
+
+                
+            }
+
+
+
+            
+        }
 
         a()
+        b()
         
         
 

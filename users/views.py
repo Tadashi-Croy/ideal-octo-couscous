@@ -63,11 +63,14 @@ def log_in(request):
 
         if user_auth:
             login(request, user_auth)
-            request.session.set_expiry(60)
+            request.session.set_expiry(0)
             print(request.session.get_expiry_age())
 
 
             return redirect('users:personal_profile')    
+        else:
+            return render(request, 'users/log_in.html', {'info': 'Incorrect Username or Password'})
+            
 
     return render(request, 'users/log_in.html')
 
@@ -78,6 +81,7 @@ def log_out(request):
 
 @login_required
 def personal_profile(request):
+    profile = ''
     user = request.user
 
     if not UserProfile.objects.filter(user = user):
@@ -91,6 +95,7 @@ def personal_profile(request):
 
         context = {
             'dogs' : dogs,
+            'profile':profile
         }
 
         return render(request, 'users/personal_profile.html', context)
@@ -167,6 +172,31 @@ def new_dog(request):
 
 @login_required
 def update_user(request):
+
+    if request.method == 'GET':
+        user = request.user
+        user_dict = {}
+
+        profile_exists = UserProfile.objects.filter(user=user).count()
+        print(profile_exists)
+
+        if profile_exists == 1:
+
+            user_profile = UserProfile.objects.get(user=user)
+
+            
+            user_dict = {
+                
+                'phone_number' : user_profile.phone_number,
+                'first_name': user_profile.first_name,
+                'last_name': user_profile.last_name,
+                'address' : user_profile.address,
+                'city' : user_profile.city,
+                'zipcode': user_profile.zipcode,
+                'share_pupps' : user_profile.share_pupps}            
+        
+        return JsonResponse(user_dict)
+
     data = request.body
     data = str(data, 'utf-8')
     form = json.loads(data)
@@ -207,7 +237,7 @@ def update_user(request):
     
     # updated_user.save()    
 
-    return JsonResponse({'message': message })
+    return JsonResponse({'message': message, 'user_info': user_dict })
 
 @login_required
 def update_dog(request):

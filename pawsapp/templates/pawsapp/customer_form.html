@@ -35,17 +35,17 @@ Make an Appointment
 
                     <div class="basic-info">
                         <div>
-                            <label for="first_name"> First Name</label>
+                            <label for="first_name"> First Name<span class="required">*</span></label>
                             <input  name="first_name" type="text" placeholder="Enter First Name">
                         </div>
                         
                         <div>
-                            <label for="last_name"> Last Name</label>
+                            <label for="last_name"> Last Name<span class="required">*</span></label>
                             <input name= "last_name" type="text" placeholder="Enter Last Name">
                         </div>
 
                         <div>
-                            <label for="email"> Email Address </label>
+                            <label for="email"> Email Address<span class="required">*</span></label>
                             <input type="email" name="email" id="email" placeholder="Enter email address">
                         </div>
                         
@@ -60,56 +60,66 @@ Make an Appointment
                         </div>
 
                         <div>
-                            <label for="phone"> Enter Phone Number</label>
+                            <label for="phone"> Enter Phone Number<span class="required">*</span></label>
                             <input name = 'phone' type="tel" placeholder="Enter Phone Number">
                         </div>
 
                     </div>
-                    
-
 
 
                     <div class="training-checks">
+                        <div>
+                            <input type="checkbox" name="puppy_training" id="" value="True">
+                            <label for="puppy_training"> Puppy training</label>
+                        </div>
+                        
+                        <div>
+                            <input type="checkbox" name="adolescent_training" id="" value="True">
+                            <label for="adolescent_training">Adolescent Training</label>
+                        </div>
+                        
+                        <div>
+                            <input type="checkbox" name="adult_training" id="" value="True">                    
+                            <label for="adult_training">Adult Dog Training</label>
+                        </div>
 
-                        <input type="checkbox" name="puppy_training" id="" value="True">
-                        <label for="puppy_training"> Puppy training</label>
+                    </div>  
                         
-                        <input type="checkbox" name="adolescent_training" id="" value="True">
-                        <label for="adolescent_training">Adolescent Training</label>
+                    <div class=" appt-times">
+                        <h5>Enter up to three convienient dates and times for the training sessions:</h5>
                         
-                        <input type="checkbox" name="adult_training" id="" value="True">                    
-                        <label for="adult_training">Adult Dog Training</label>
-                        
-                        
-                        <div class=" appt-times">
-                            <h4>Enter up to three convienient dates and times for the training sessions:</h4>
-                            
-                            <div class="time">
-                                <label for="time1"> Required</label>
-                                <input type="datetime-local" name="time1" id="time1" placeholder="Time 1">
-                                
-                            </div>
-                            <div class="time">
-                                <input type="datetime-local" name="time2" id="time2" placeholder="Time 1">
-                                
-                            </div>
-                            <div class="time">
-                                <input type="datetime-local" name="time3" id="time3">
-                                
-                            </div>
+                        <div class="time">
+                            <label for="time1"> First Choice <span class="required">*</span>:</label>
+                            <input type="datetime-local" name="time1" id="time1" placeholder="Time 1">
                             
                         </div>
+                        <div class="time">
+                            <label for="time2"> Second Choice:</label>
+                            <input type="datetime-local" name="time2" id="time2" placeholder="Time 1">
+                            
+                        </div>
+                        <div class="time">
+                            <label for="time3">Third Choice:</label>
+                            <input type="datetime-local" name="time3" id="time3">
+                            
+                        </div>
+                        
                     </div>
+                   
                     
                     
                     
                     
                     <div class="dog-details">
-                        <input type="text" name="dog_name" id="" placeholder="Name of Dog">
+                        <div>
+                            <label for="dog_name"> Dog Name</label> <br>
+                            <input type="text" name="dog_name" id="" placeholder="Name of Dog">
+                        </div>
+
                         <textarea name="dog_detail" id="" cols="20" rows="5" placeholder="Tell me about your dog" ></textarea>
                     </div>
                     
-                    <div>
+                    <div class="referred-by">
 
                         <select v-model="heardAbout" name="heard_about" id="">  
                             
@@ -126,10 +136,8 @@ Make an Appointment
                         
                         
                         <div v-if="heardAbout">
-                            
-                            <label  for="referred"> [[heardAbout]] </label>
-                            <input v-if="heardAbout === 'Referral' " type="text" name="referred" id="referred">
-                            <input v-if="heardAbout === 'Other' " type="text" name="other" id="other">
+                            <input v-if="heardAbout === 'Referral' " type="text" name="referred" id="referred" placeholder= 'Referred by?'>
+                            <input v-if="heardAbout === 'Other' " type="text" name="other" id="other" placeholder="Enter Other Method">
                             
                         </div>
                         
@@ -144,7 +152,8 @@ Make an Appointment
 
                     <input type="submit" value="Submit">
                 </div>
-                
+                <br>
+                <p> <span class="required">*</span> Indicates a required field</p>
             </form>
         </div>
             

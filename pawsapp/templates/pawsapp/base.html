@@ -8,6 +8,7 @@
     {% load static%}
     <link rel="stylesheet" href="{% static 'pawsapp/style.css'%}">
     <script defer src="{% static 'pawsapp/main.js' %}"></script>
+    <script src="https://kit.fontawesome.com/cdc9299abe.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
     
@@ -114,12 +115,42 @@
             </div>
 
         </div>
+        
+        <div class="contact-info">
+            <div>
+
+                <p><i class="far fa-envelope"></i>
+                    Email:</p>
+                    <p>
+                        <i class="fas fa-mobile-alt"></i>
+                        Phone:
+                    </p>
+            </div>
+            <div>
+
+                <a href="#">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-wordpress"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+
+            <img id="apdt-img" src="{% static 'pawsapp/images/APDT-logo-300x294.jpg' %}" alt="APDT Image">
+
+
+        </div>
         <div class="cert">
             Certified by:
             <a href="https://catchdogtrainers.com/who-we-are/" target="_blank">
                 Catch Dog Trainers
             </a>
             <p>Pawsitive Focus Dog Training 2020&trade;</p>
+            
+
         </div>
         
     </footer>

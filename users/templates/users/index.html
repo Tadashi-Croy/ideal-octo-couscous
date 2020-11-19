@@ -5,15 +5,20 @@ Users Index/ Happy Customers Page
 {% endblock%}
 
 {% block content%}
+<div class="about-body">
+
     {% if user.is_authenticated %}
-        Welcome {{user}}
+    Welcome {{user}}
     {% endif %}    
+    
+    <div class="about-content">
+        
+        <div class="about-intro">
+            <h1>About Me</h1>
+            <h4>My name is Kellyn</h4>
+        </div>
 
-    <div class="about">
-        <h1>About Me Page!</h1>
-
-        <p>
-            About me
+        <p class="top-about-me">
             I have been working professionally with dogs since 2017 and spend a lot of time 
             volunteering with local animal rescues and shelters. I have fostered dogs in the past, 
             but since having a baby, my focus has been helping foster parents with free one on one 
@@ -23,8 +28,8 @@ Users Index/ Happy Customers Page
             I became a CPDT-KA certified trainer in 2021, fear-free certified in 2021, and am a member of the 
             Association of Professional Dog Trainers.
         </p>
- 
-        <p>
+        
+        <p class="bottom-about-me">
             Positive reinforcement/training philosophy
             The science behind dog behavior and training has come a long way over the years and now has 
             proven the effectiveness of positive reinforcement over punishment. Teaching a dog what to do 
@@ -33,19 +38,20 @@ Users Index/ Happy Customers Page
             corrections increase stress on our dogs and hurts our relationship with them. On the other hand, 
             positive reinforcement methods make learning exciting, good behavior fun, and builds a stronger bond. 
             Training should be enjoyable for everyone involved!
-
             I believe in looking at each dog as a whole individual. They all are motivated by 
             different rewards and have different mental and physical needs. By fulfilling all a dog’s needs
-             and building up confidence, they are not only happier and healthier, but ready to listen and learn!
-
+            and building up confidence, they are not only happier and healthier, but ready to listen and learn!
+            
         </p>
         
     </div>
-
-
-
-
     
+    
+    
+    
+    
+</div>
     
 {% endblock%}
+    
     

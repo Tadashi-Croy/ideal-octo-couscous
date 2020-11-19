@@ -8,9 +8,12 @@
 
 a{
     text-decoration: none;
+    color: unset;
+
 }
 body{
     height: 100%;
+    background-color: rgba(196, 233, 255, 0.925);
 }
 #app{
     height: 100vh;
@@ -41,6 +44,7 @@ body{
 }
 .hero> *{
     margin: .25rem 0;
+    background: white;
 }
 .hero> h2{
     border: 1px solid black;
@@ -79,6 +83,7 @@ body{
     border-radius: 4px;
     height: 35%;
     text-align: center;
+    background: white;
 }
 
 .header-links :hover{
@@ -127,11 +132,21 @@ footer{
     text-align: right;
 }
 
+#apdt-img{
+    width: 60px;
 
+}
+.contact-info{
+    display: flex;
+    justify-content: space-evenly;
+}
 
 /* Base Footer Section End */
 
 /* Pawsapp Index Page Start*/
+.required{
+    color: red;
+}
 
 .index-body{
     height: 75vh;
@@ -152,8 +167,8 @@ footer{
     text-align: center;
     word-break: break-all;
     word-wrap: break-word;
-    width: 60%;
-    margin: 7rem auto;
+    width: 40%;
+    margin: 7rem 45rem;
 }
 
 .index-content{
@@ -209,8 +224,8 @@ footer{
     font-size: 1.2rem;
 }
 .customer-form-header > h4{
-    margin: .25rem;
     padding: .2rem;
+    background: rgb(255, 255, 255);
 }
 form> .entry{
     display: flex;
@@ -229,14 +244,202 @@ form> .entry{
     justify-content: space-between;
     padding: 0 6rem;
 }
+.training-checks{
+    display: flex;
+    justify-content: space-around;
+}
+.appt-times> *{
+    padding: .1rem;
+    margin: .25rem;
 
-
-
-
-
-
+}
+.time{
+    font-size: .9rem;
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+}
+.dog-details{
+    padding: .1rem;
+    display: flex;
+    flex-direction: column;
+}
+.dog-details>*{
+    margin: .1rem 0;
+}
+.referred-by{
+    display: flex;
+    margin: .1rem;
+    padding: .1rem;
+}
+.referred-by> *{
+    margin: 0 .4rem 0 0;
+}
 
 /* Pawsapp Customer Form End */
 
+/* Users Index/About Page Start */
+
+.about-intro{
+    background: white;
+    text-align: center;
+}
+
+.top-about-me{
+    width: 40%;
+    margin: 1rem;
+    padding: .1rem;
+    background: rgba(255, 255, 255, 0.281);
+    border-radius: 4px;
+}
+.bottom-about-me{
+    /* display: flex;
+    justify-content: right; */
+    width: 40%;
+    margin: .25rem 1rem;
+    padding: .1rem;
+    background: rgba(255, 255, 255, 0.253);
+    position: relative;
+    left: 720px;
+    border-radius: 4px;
+
+}
 
 
+
+
+
+/* Users Index/About Page End */
+
+
+/* Users Log In Start*/
+.log-in-body{
+    text-align: center;
+}
+.log-in-body > form{
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid black; */
+}
+.log-in-body > form > *{
+    margin: .25rem;
+}
+
+
+
+/* Users Log In End */
+
+/* Personal Profile Page Start */
+.user-profile{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: auto;
+    justify-content: center;
+}
+.users-info{
+    display: grid;    
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    border: 1px solid black;
+    padding: 1rem;
+    background: white;
+
+}
+.users-info> *{
+    margin: .25rem;
+    padding: .1rem;
+}
+
+
+
+.input-forms{
+    margin: .1rem;
+
+}
+.contact-update-form{
+    margin: 1rem;
+    width: fit-content;
+    
+
+}
+.dropped-down-form{
+    background: white;
+    padding: 1rem;
+    margin: .2rem;
+    border: 1px solid black;
+    
+}
+.dropped-down-form >div > *{
+    margin: .25rem 0;
+}
+.update-dog-btn{
+    margin: 1rem;
+}
+
+
+.personal-profile-page-body>h3{
+    margin: 1rem;
+    padding: .5rem;
+    color: rgb(0, 0, 0);
+    background: rgba(255, 255, 255, 0.644);
+    width: fit-content;
+    border-radius: 5px;
+    box-shadow: 7px 14px 5px -12px rgba(0,0,0,0.26);
+
+
+}
+
+.dog-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+ 
+}
+.dog{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 7px 14px 12px -8px rgba(0,0,0,0.41)
+    
+}
+.dog > ul > li{
+    list-style: none;
+}
+
+
+
+
+
+/* Personal Profile Page End */
+
+/* Sign up Page Start */
+.sign-up-body > .required{
+    margin: .5rem;
+}
+.sign-up-body> form{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.sign-in-inputs{
+    background: white;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+.sign-in-inputs>*{
+    margin: .25rem;
+    padding: .1rem;
+
+}
+
+
+
+/* Sign Up Page End */

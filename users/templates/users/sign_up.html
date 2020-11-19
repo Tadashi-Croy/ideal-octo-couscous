@@ -7,40 +7,58 @@ Users Index/ Happy Customers Page
 
 {% block content%}
 
-    <div id="app">
-    
-        <h1> This is the sign up page </h1>
-        {% if taken%}
-            {{taken}}
+    <div class="sign-up-body">
+        
+        <div class="required">
+            {% if taken%}
+            <h3>
+                {{taken}}
+            </h3>
             <br>
-        {% endif%}
-        {% if error %}    
-        {{error}}
-        <br>
-        {% endif %}
+            {% endif%}
+            {% if error %}
+            <h3>
+                {{error}}
+
+            </h3>    
+            <br>
+            {% endif %}
+        </div>
 
 
         <form action="" method="POST">
             {% csrf_token %}
-    
-            <label for="username">Enter Username</label>
-                <input name="username" type="text">
+            <div class="sign-in-inputs">
 
-            <label for="email"> Enter Email Address</label>
-                <input type="email" name="email" id="email">
-            
-            <label for="re-email"> Re-Enter Email Address</label>
-                <input type="email" name="re-email" id="email2">
+                <div>
+                    <label for="username">Enter Username</label>
+                    <input name="username" type="text">
+                </div>
                 
+                <div>
+                    <label for="email"> Enter Email Address</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                
+                <div>
+                    <label for="re-email"> Re-Enter Email Address</label>
+                    <input type="email" name="re-email" id="email2">
+                </div>
             
-            <label for="password">Enter Password</label>
-            <input type="password" name="password" id="pass1">
-
-            <label for="re-password">Re-Enter Password</label>
-            <input type="password" name="re-password" id="pass2">
-
-            <input type="submit" value="Sign Up">
-
+                <div>
+                    <label for="password">Enter Password</label>
+                    <input type="password" name="password" id="pass1">
+                </div>
+                
+                <div>
+                    <label for="re-password">Re-Enter Password</label>
+                    <input type="password" name="re-password" id="pass2">
+                </div>
+                <div>
+                    <input type="submit" value="Sign Up">
+                </div>
+            </div>
+                
 
 
         </form>
