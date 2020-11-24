@@ -45,7 +45,7 @@ Users Index/ Happy Customers Page
 
                 <div class="contact-update-form">   
                     
-                    <div v-if="message"> [[message]]</div>
+                    <div v-if="message" class="message" @click= 'message = ""'> [[message]]</div>
                     
                     <!-- {{form}} -->
                     <div v-if="!dog_update">
@@ -94,7 +94,7 @@ Users Index/ Happy Customers Page
 
             
             <div class="update-dog-btn" v-if= '!update'>
-                <button  @click= 'dog_update = !dog_update' > Update Dog Information/Add new Dog</button>
+                <button  @click= 'dog_update = !dog_update' > Update Dog/Add new Dog</button>
             </div>
             <div class="contact-update-form" v-if="dog_update">
                 <div class="dropped-down-form">
@@ -146,14 +146,57 @@ Users Index/ Happy Customers Page
                     <button @click= 'personalProfiler("new_dog/")'>add new</button>
                     <button @click= 'personalProfiler("update_dog/")'>  update</button>
                 </div>
-            </div>
+                <h3>Dogs you have registered:</h3>
+                <div>
+
+                
+                <div class="dog-cards">
+                    <div class="dog" v-for="(item, index) in tester" :key="index">
+
+
+                        <h3>Dog Name: [[item.name]]</h3>
+                        <ul>
+                            <li>
+                                Age: [[item.age]]
+                            </li>
+                            <li>
+                                Sex: [[item.sex]]
+                            </li>
+                            <li>
+                                Size: [[item.size]]
+                            </li>
+                            <li>
+                                Temperment: <span v-if="item.temperment">[[item.temperment]] </span>
+                                <span v-else>Not Added</span>
+                                
+                            </li>
+                            <li>
+                                Crate Trained: <span v-if="item.temperment">[[item.crate_trained]] </span>
+                                <span v-else>Not Added</span>
+                                
+                                
+                            </li>
+                            <li>
+                                Extra Details: [[item.details]]
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                        
+                    </div>
+                
+
+                    </div>
+                </div>
         </div>
 
 
-        <hr>
-        <h3>Dogs you have registered:</h3>
-        <div class="dog-cards">
-            <div class="dog" v-for="(item, index) in tester" :key="index">
+        
+        <h3 v-if= "!dog_update">Dogs you have registered:</h3>
+        <div v-if= "!dog_update" class="dog-cards">
+            <div class="dog" v-for="(item, index) in tester">
+                
                 
                 <h3>Dog Name: [[item.name]]</h3>
                 <ul>
@@ -180,9 +223,15 @@ Users Index/ Happy Customers Page
                     <li>
                         Extra Details: [[item.details]]
                         
+                        <!-- [[item]] -->
                     </li>
                     
                 </ul>
+                <div>
+                    <a @click= 'dogDeleter(item.id)' class="dog-delete">
+                        Delete Dog
+                    </a>
+                </div>
                 
                 
             </div>

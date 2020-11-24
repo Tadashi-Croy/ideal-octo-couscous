@@ -12,5 +12,6 @@ urlpatterns =[
     path('personal_profile/', views.personal_profile, name='personal_profile'),
     path('personal_profile/update_dog/', views.update_dog, name='update_dog'),
     path('personal_profile/update_user/', views.update_user, name='update_user'),
-    path('personal_profile/new_dog/', views.new_dog, name = 'new_dog')
+    path('personal_profile/new_dog/', views.new_dog, name = 'new_dog'),
+    path('personal_profile/dog_deleter/', views.dog_deleter, name= 'dog_deleter')
 ]

@@ -19,7 +19,6 @@ def index(request):
 def sign_up(request):
     
     if request.POST:
-        print(request.POST)
         form = request.POST
         username = form.get('username')
         password = form.get('password')
@@ -36,7 +35,6 @@ def sign_up(request):
 
         if password == re_pass and email == re_email:
 
-            print(password, email) 
             taken = User.objects.filter(username=username)
             if taken:
                 return render(request, 'users/sign_up.html', {'taken': 'Username is Taken'})
@@ -64,7 +62,6 @@ def log_in(request):
         if user_auth:
             login(request, user_auth)
             request.session.set_expiry(0)
-            print(request.session.get_expiry_age())
 
 
             return redirect('users:personal_profile')    
@@ -112,7 +109,6 @@ def new_dog(request):
         dogs = Dog.objects.filter(owner=user_profile)
 
         for dog in dogs:
-            # print(dog.dog_name)
             add = {
                 'name':dog.dog_name,
                 'age': dog.age,
@@ -120,7 +116,8 @@ def new_dog(request):
                 'size': dog.size,
                 'temperment': dog.temperment,
                 'crate_trained': dog.crate_trained,
-                'details': dog.details                
+                'details': dog.details,
+                'id': dog.id                
                 }
 
             dog_dict.update({count:add})
@@ -151,7 +148,6 @@ def new_dog(request):
     added = Dog.objects.filter(owner = user_profile, dog_name = dog_name).exists()
     added2 = Dog.objects.filter(owner = user_profile, dog_name = dog_name)
 
-    print(f'added: {added} \n added2: {added2}')
 
 
     if added:
@@ -178,7 +174,6 @@ def update_user(request):
         user_dict = {}
 
         profile_exists = UserProfile.objects.filter(user=user).count()
-        print(profile_exists)
 
         if profile_exists == 1:
 
@@ -230,7 +225,7 @@ def update_user(request):
 
     if count == 7:
         message = 'No Data Input'    
-    print(user_dict)
+    
 
     updated_user = UserProfile.objects.filter(user =user).update(user=user, phone_number=user_dict['phone_number'], first_name=user_dict['first_name'], last_name= user_dict['last_name'],
                     address=user_dict['address'], city=user_dict['city'], zipcode=user_dict['zipcode'], share_pupps= user_dict['share_pupps'])
@@ -247,7 +242,7 @@ def update_dog(request):
 
 
 
-    dog_name = form.get('dog_name').title
+    dog_name = form.get('dog_name').title()
     age = form.get('age')
 
     if not age.isdigit():
@@ -260,8 +255,30 @@ def update_dog(request):
     details = form.get('details')
     
     user_profile = UserProfile.objects.get_or_create(user=request.user)[0]
+
+
     doggie = Dog.objects.filter(dog_name=dog_name).update(owner = user_profile, age =age, sex=sex, size=size, temperment= temperment,
     crate_trained=crate_trained, details = details)
 
+    if doggie == 0:
+        new_dog(request)
+
+
+
 
     return JsonResponse({'message': f'{dog_name} Updated!'})
+
+
+
+@login_required
+def dog_deleter(request):
+    data = request.body
+    data = str(data, 'utf-8')
+    form = json.loads(data)
+    i = form.get('dog_delete')
+    to_destroy = Dog.objects.filter(id = i)
+    to_destroy.delete()
+
+
+
+    return JsonResponse({'message': 'Dog Removed!'})

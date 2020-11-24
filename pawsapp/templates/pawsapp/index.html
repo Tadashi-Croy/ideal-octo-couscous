@@ -1,17 +1,18 @@
 {% extends 'pawsapp/base.html'  %}
+{% load static %}
 
 {% block title%}
 Pawsitive Focus Dog Training
 {% endblock %}
 {% block content%}
 
-<div class="index-body">
+<div class="index-body app">
 
     <div class="hero-pic">
         <div>
             <q>
                 Training with a positive focus is fun and builds an unbreakable bond between dog and handler.
-                A fulfilled, confident dog enjoys being well <br> behaved and has a strong desire to learn! 
+                A fulfilled, confident dog enjoys being well behaved and has a strong desire to learn! 
             </q>
         </div>
     </div>
@@ -22,7 +23,17 @@ Pawsitive Focus Dog Training
 
         
         <div class="index-content-div">
-            <div>
+
+            <div class="index-intro">
+
+                <h4>Welcome!</h4>
+                <p>My name is Kellyn and I'm a certified Dog Trainer with CATCH dog trainers</p>
+            </div>
+
+
+
+
+            <div class="service-intro">
                 <p>
                     Services
                 </p>
@@ -30,19 +41,31 @@ Pawsitive Focus Dog Training
 
             <main class="service-holder">
 
-                <div class="service i1"> <span class="spanner" >Walk and train </span> </div> 
-                <div class="service i2"> <span class="spanner">  Day training </span> </div> 
-                <div class="service i3"> <span class="spanner"> Puppy training </span> </div> 
-                <div class="service i4"> <span class="spanner">Private lessons </span>  </div>
-                <div class="service i5"> <span class="spanner"> Group classes</span> </div>
+                <div class="service i1"> <span class="spanner" >Walk and train </span> 
+                <img src="{% static 'pawsapp/images/walk_and_train.jpg' %}" alt="">
+                
+                </div> 
+                <div class="service i2"> <span class="spanner">  Day training </span> 
+                    <img src="{% static 'pawsapp/images/day_training.jpg' %}" alt="">
+                
+                </div> 
+                <div class="service i3"> <span class="spanner"> Puppy training </span> 
+                    <img src="{% static 'pawsapp/images/puppy_training.jpg '%}" alt="">
+                
+                </div> 
+                <div class="service i4"> <span class="spanner">Private lessons </span>  
+                    <img src="{% static 'pawsapp/images/private_lessons.jpg' %}" alt="">
+                
+                </div>
+                <div class="service i5"> <span class="spanner"> Group classes</span> 
+                    <img src="{% static 'pawsapp/images/group_classes.jpg '%}" alt="">
+                
+                </div>
                 
             </main>
         
             
-            <div>
-                <h4>Welcome</h4>
-                <p>My name is Kellyn and I'm a certified Dog Trainer with CATCH dog trainers</p>
-            </div>
+         
             
         </div>
             
@@ -54,3 +77,7 @@ Pawsitive Focus Dog Training
 </div>
 
 {% endblock %}
+
+
+
+

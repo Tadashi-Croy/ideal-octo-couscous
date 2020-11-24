@@ -1,3 +1,10 @@
+/* Fonts */
+/* font-family: 'Indie Flower', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Yanone Kaffeesatz', sans-serif; */
+
+
+
 *, ::before, ::after{
     margin: 0;
     padding: 0;
@@ -16,7 +23,7 @@ body{
     background-color: rgba(196, 233, 255, 0.925);
 }
 #app{
-    height: 100vh;
+    height: 100%;
 }
 
 /* Container Type Mods End */
@@ -33,29 +40,43 @@ body{
     margin: .25rem;
     padding: .5rem;
     justify-content: space-between;
-    color: black;
+    color: rgb(27, 27, 27);
     position: sticky;
     top: 0;
-  
+    background-color: rgba(196, 233, 255, 0.719);
 }
 
 .hero{
     margin: 0;
 }
 .hero> *{
-    margin: .25rem 0;
-    background: white;
+    margin: .5rem 0;
+    background: rgba(255, 255, 255, 0.575);
+    
 }
 .hero> h2{
-    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    border: 2px solid rgba(255, 255, 255, 0.301);
+    box-shadow: 3px 7px 13px -7px rgba(0,0,0,1);
+    color: rgb(63, 63, 63);
+    font-size: 2rem;
+    padding: .25rem;
     border-radius: 4px;
 }
+.hero> a{
+    background: none;
+}
 .hero >a >button{
-    border:  1px solid black;
-    background-color: white;
+    border: none;
+    font-weight: 600;
+    color: rgb(153, 153, 153);
+    background-color: rgba(255, 255, 255, 0.521);
+    border-radius: 8px;
     cursor: pointer;
-    text-decoration: underline;
-    padding: .1rem;
+    padding: .2rem;
+    box-shadow: 3px 7px 13px -7px rgba(0,0,0,1);
+
 }
 
 .hero >a :hover{
@@ -68,28 +89,30 @@ body{
 
 .header-links{
     display: flex;
-    padding: .1rem;
+    padding: 1rem;
     margin: .1rem;
     color: black;
     
 }
 
 .header-links >*{
- 
-    font-size: .9rem;
-    margin: 0 .25rem;
-    padding: .1rem;
-    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .8rem;
+    margin: .3rem .25rem;
+    padding: .5rem;
+    border: 1px solid rgba(0, 0, 0, 0.103);
     border-radius: 4px;
-    height: 35%;
+    height: 28%;
+    color: rgb(104, 104, 104);;
     text-align: center;
-    background: white;
+    background: rgba(255, 255, 255, 0.692);
+    box-shadow: 0px 3px 7px -3px rgba(0,0,0,0.59);
 }
 
 .header-links :hover{
     transform: scale(.9);
-    background-color: gray;
-    color: black;
+    background-color: rgb(146, 186, 231);
+    color: rgb(255, 255, 255);
 }
 
 /* Base Header Section End */
@@ -97,12 +120,15 @@ body{
 /* Base Footer Section Start */
 
 footer{
-    position: sticky;
-    bottom: 0;
     display: flex;
+    position: absolute;
+    /* bottom: 0; */
     flex-direction: column;
-    margin: .1rem;
-    background: rgb(255, 255, 255);
+    margin:  .5rem .1rem 0 .1rem;
+    background: rgba(255, 255, 255, 0);
+    padding: 1rem 0 0 0;
+    width: 100%;
+    margin-top: clamp(.25rem, 1rem, 15rem);
 
 }
 .links> *{
@@ -124,6 +150,7 @@ footer{
     display: flex;
     padding: .1rem;
     font-size: .9rem;
+    background-color: rgb(255, 255, 255);
 }
 .cert >*{
     margin: 0 18rem 0 1rem;
@@ -133,15 +160,32 @@ footer{
 }
 
 #apdt-img{
-    width: 60px;
-
+    /* width: 60px; */
+    height: 80px;
+    border-radius: 50%;
 }
 .contact-info{
     display: flex;
     justify-content: space-evenly;
+    background-color: rgba(255, 255, 255, 0.747);
+    font-size: .9rem;
+}
+.info-top{
+    color: rgb(116, 116, 116);
+    font-weight: 600;
+}
+.font-awesome-imgs{
+    color: rgb(119, 119, 119);
+    padding: 1rem;
+    font-size: 1.5rem;
 }
 
 /* Base Footer Section End */
+
+
+
+
+
 
 /* Pawsapp Index Page Start*/
 .required{
@@ -149,7 +193,14 @@ footer{
 }
 
 .index-body{
-    height: 75vh;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 4rem;
+    padding-bottom: 3rem;
+    /* padding-right: 17px; Increase/decrease this value for cross-browser compatibility */
+    /* box-sizing: content-box; */
+    /* overflow-y: scroll; */
+    
 
 }
 .hero-pic{
@@ -161,17 +212,17 @@ footer{
     padding: 0;
 }
 .hero-pic> div{
-    color: rgb(223, 223, 223);
-    background: rgba(94, 94, 94, 0.274);
-    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(58, 58, 58);
+    font-weight: 500;
+    font-size: 1rem;
     text-align: center;
-    word-break: break-all;
-    word-wrap: break-word;
     width: 40%;
     margin: 7rem 45rem;
 }
 
 .index-content{
+    height: 100vh;
     margin: 0;
     padding: 0;
 
@@ -179,16 +230,32 @@ footer{
 }
 .index-content-div{
     margin: 0;
-   
 }
-.index-content-div > div{
+.index-intro{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    margin: 1rem;
+    padding: .2rem;
+    font-size: 2rem;
     text-align: center;
-    background: rgba(128, 128, 128, 0.349);
 }
+.index-intro> *{
+    margin: .2rem;
+}
+
+.service-intro{
+    margin: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    
+}
+
+
 .service-holder{
     width: 100%;
     height: 20vh;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 
 }
 .service-holder >*{
@@ -197,16 +264,51 @@ footer{
 
 
 .service{
-    width: 20%;
     text-align: center;
     background: white;
     font-size: 1.2rem;
+    height: fit-content;
 
+}
+.service-holder>*{
+    border: 2px solid red;
+}
+.service> img{
+    /* height: 300px; */
+    width: 200px;
+    overflow: auto;
+}
+.i1{
+    grid-row: 1;
+    grid-column: 1/3;
+    display: flex;
+    flex-direction: column;
+    padding: .25rem;
+}
+.i1>*{
+    margin: auto;
+}
+.i2{
+    grid-row: 2;
+    grid-column: 3/5;
+}
+.i3{
+    grid-row: 3;
+    grid-column: 1/3;
+
+
+}
+.i4{
+    grid-row: 4;
+    grid-column: 3/5;
+}
+.i5{
+    grid-row: 5;
+    grid-column: 1/3;
 }
 .spanner{
     padding: 0 .1rem;
 
-    border: 1px solid black;
 }
 
 /* Pawsapp Index Page End */
@@ -366,7 +468,7 @@ form> .entry{
 .dropped-down-form{
     background: white;
     padding: 1rem;
-    margin: .2rem;
+    margin: .2rem 0;
     border: 1px solid black;
     
 }
@@ -393,23 +495,49 @@ form> .entry{
 .dog-cards{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
- 
+    height: 100%;
+    overflow-y: auto;
+}
+.dog-cards > *{
+    margin: .5rem 0;
 }
 .dog{
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin: max(.2rem, auto);
     padding: 1rem;
-    border: 1px solid black;
+    border: 2px inset black;
     border-radius: 10px;
     background: white;
-    box-shadow: 7px 14px 12px -8px rgba(0,0,0,0.41)
+    box-shadow: 7px 14px 12px -8px rgba(0,0,0,0.41);
+    width: clamp(50px, 200px , 250px);
+    height: min(auto, 100%);
+    overflow-x: auto;
+    
     
 }
+
 .dog > ul > li{
     list-style: none;
 }
 
+.dog-delete{
+    border: 1px solid black;
+    background: rgba(255, 0, 0, 0.473);
+    color: white;
+    font-size: .8rem;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+.message{
+    background: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-bottom: .5rem;
+    cursor: pointer;
+
+}
 
 
 

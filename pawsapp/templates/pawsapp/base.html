@@ -11,7 +11,8 @@
     <script src="https://kit.fontawesome.com/cdc9299abe.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:ital,wght@0,400;0,500;1,400;1,500&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <title>
         {% block title%}
         {% endblock %}</title>
@@ -29,13 +30,16 @@
                 </h2>
 
             
-            <a href="mail: test@test.com" target='_blank'> <button> Contact Me</button></a>  
+            <a href="mail: test@test.com"> <button> Contact</button></a>  
 
         
         </div>
 
         <div class="header-links">
             
+            <a href="{% url 'pawsapp:index' %} ">
+                Home
+            </a>
             
             <a href="{% url 'pawsapp:get_deets' %}">
                 Book Appointment
@@ -68,12 +72,10 @@
             
 
            
-            <p>
-                <a href="{% url 'pawsapp:references' %}">
-                    References
+            <a href="{% url 'pawsapp:references' %}">
+                References
 
-                </a>
-            </p>
+            </a>
 
         </div>
 
@@ -91,42 +93,24 @@
         
     </div>
 
-    <hr>
+    
     <footer>
-        <div class="links">
-            <p>
-                Looking to adopt or volunteer with a local rescue?
-                
-            </p>
-            <div>
-
-                <a href="https://otatpdx.org/" target="_blank">
-                    One Tail at a Time
-                </a>
-                
-                <a href="https://streetsavvydogrescue.org/" target="_blank">
-                    Street Savy Dog Rescue
-                </a>
-                
-                <a href="https://www.familydogsnewlife.org/" target="_blank">
-                    Family Dog New Life
-                </a>
-                
-            </div>
-
-        </div>
         
         <div class="contact-info">
-            <div>
-
+            <div >
+                <p class="info-top" >Kellyn Croy</p>
+                <p class="info-top" > <em>Pawsitive Focus Dog Training</em> </p>
+                <br>    
                 <p><i class="far fa-envelope"></i>
-                    Email:</p>
+                    
+                    <a href="mailto: #"> McClanahanKellyn@gmail.com</a> </p>
+
                     <p>
                         <i class="fas fa-mobile-alt"></i>
-                        Phone:
+                        Tel: (971) 206-1489
                     </p>
             </div>
-            <div>
+            <div class="font-awesome-imgs">
 
                 <a href="#">
                     <i class="fab fa-facebook"></i>
@@ -134,7 +118,7 @@
                 <a href="#">
                     <i class="fab fa-wordpress"></i>
                 </a>
-                <a href="#">
+                <a href="https://www.instagram.com/kellynshappypups/" target="_blank">
                     <i class="fab fa-instagram"></i>
                 </a>
             </div>
@@ -146,7 +130,9 @@
         <div class="cert">
             Certified by:
             <a href="https://catchdogtrainers.com/who-we-are/" target="_blank">
-                Catch Dog Trainers
+               <strong>
+                   Catch Dog Trainers
+               </strong>
             </a>
             <p>Pawsitive Focus Dog Training 2020&trade;</p>
             

@@ -61,6 +61,7 @@ main_app = new Vue({
         crate_trained:'',
         details:'',
         tester: '',
+        dogDelete: '',
 
         // Customer Form Data 
 
@@ -75,7 +76,6 @@ main_app = new Vue({
     },
     methods: {
         personalProfiler: async function(url_path){
-            console.log('AddNewDog Function')
             
             let token = document.getElementsByName('csrfmiddlewaretoken')[0]
             
@@ -100,6 +100,7 @@ main_app = new Vue({
                     temperment: this.temperment,
                     crate_trained: this.crate_trained,
                     details: this.details,
+                    dog_delete: this.dogDelete
                 },
                 headers:{
                     'X-CSRFToken': token.value
@@ -111,7 +112,6 @@ main_app = new Vue({
             let response = await axios(config) 
 
             main_app.message = response.data.message
-            console.log(response)
             main_app.userInfo = response.data.user_info
 
             this.phone_number= '',
@@ -141,6 +141,11 @@ main_app = new Vue({
 
             main_app.tester = body
         },
+        dogDeleter: async function(id){
+            main_app.dogDelete = id
+            main_app.personalProfiler('dog_deleter/')
+
+        }
         
 
     },
@@ -165,10 +170,8 @@ main_app = new Vue({
 
 
                 main_app.tester = body
+              
             }
-
-
-
             
         }
         let b  = async function(){
