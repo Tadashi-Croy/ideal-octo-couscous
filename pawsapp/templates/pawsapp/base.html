@@ -30,7 +30,7 @@
                 </h2>
 
             
-            <a href="mail: test@test.com"> <button> Contact</button></a>  
+            <!-- <a href="mail: test@test.com"> <button> Contact</button></a>   -->
 
         
         </div>
@@ -93,6 +93,14 @@
         
     </div>
 
+    {% block extra %}
+
+    {% endblock %}
+    <div class="extra-space">
+
+    </div>
+    
+    
     
     <footer>
         
@@ -122,8 +130,11 @@
                     <i class="fab fa-instagram"></i>
                 </a>
             </div>
-
-            <img id="apdt-img" src="{% static 'pawsapp/images/APDT-logo-300x294.jpg' %}" alt="APDT Image">
+            
+            <div>
+                <img id="apdt-img" src="{% static 'pawsapp/images/APDT-logo-300x294.jpg' %}" alt="APDT Image">
+                <img id='ccdt-img' src="{% static 'pawsapp/images/CATCH_CCDT-Seal-Blue-300.jpg' %}" alt="">
+            </div>
 
 
         </div>

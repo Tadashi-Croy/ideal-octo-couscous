@@ -25,7 +25,7 @@ def get_deets(request):
 
         if not form.get('first_name') or not form.get('email') or not form.get('phone'):
 
-            return render(request, 'pawsapp/customer_form.html', {'info': 'Please Enter Information into all required fields.'})
+            return render(request, 'pawsapp/customer_form.html', {'info': 'Please Enter Information Into All Required Fields.'})
             
 
 

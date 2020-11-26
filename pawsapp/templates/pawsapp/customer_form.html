@@ -2,7 +2,7 @@
     
 {% block title%}
 
-Make an Appointment
+Appointments
 
 {% endblock%}
 
@@ -12,7 +12,7 @@ Make an Appointment
 <main class="customer-form-body">
         <div class="customer-form-header">
 
-            <p>Book An Appointment:</p>
+            <p>Book An Appointment <span class="customer-form-spanner">(Or Start A Conversation)</span> :</p>
 
             {% if info  %}
             <h4>{{info}}
@@ -86,7 +86,7 @@ Make an Appointment
                     </div>  
                         
                     <div class=" appt-times">
-                        <h5>Enter up to three convienient dates and times for the training sessions:</h5>
+                        <h5>Enter up to three convienient dates and times for the training sessions or consultation:</h5>
                         
                         <div class="time">
                             <label for="time1"> First Choice <span class="required">*</span>:</label>
@@ -111,12 +111,12 @@ Make an Appointment
                     
                     
                     <div class="dog-details">
-                        <div>
+                        <div class="dog-name">
                             <label for="dog_name"> Dog Name</label> <br>
                             <input type="text" name="dog_name" id="" placeholder="Name of Dog">
                         </div>
 
-                        <textarea name="dog_detail" id="" cols="20" rows="5" placeholder="Tell me about your dog" ></textarea>
+                        <textarea name="dog_detail" id="" cols="20" rows="5" placeholder="Tell me about your dog or what you'd like to discuss..." ></textarea>
                     </div>
                     
                     <div class="referred-by">
@@ -148,7 +148,7 @@ Make an Appointment
                 </div>
                     
                 
-                <div>
+                <div class="submit-btn" > 
 
                     <input type="submit" value="Submit">
                 </div>
