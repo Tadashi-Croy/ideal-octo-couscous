@@ -1,51 +1,111 @@
 {% extends 'pawsapp/base.html'%}
+{% load static %}
+
+
 
 {% block title%}
 Users Index/ Happy Customers Page
 {% endblock%}
 
 {% block content%}
-<div class="about-body">
-
-    {% if user.is_authenticated %}
-    Welcome {{user}}
-    {% endif %}    
+<div class="about-body">   
     
     <div class="about-content">
         
         <div class="about-intro">
-            <h1>About Me</h1>
-            <h4>My name is Kellyn</h4>
+            <h1>Pawsitive Focus Dog Training</h1>    
+        </div>
+        
+        <div class="mission" >
+            
+            <p>
+                Our mission is to provide affordable training and support to every person who wishes to receive it and to 
+                help families overcome the anguish and struggles that can sometime happen with our furry friends. 
+            </p>
         </div>
 
-        <p class="top-about-me">
-            I have been working professionally with dogs since 2017 and spend a lot of time 
-            volunteering with local animal rescues and shelters. I have fostered dogs in the past, 
-            but since having a baby, my focus has been helping foster parents with free one on one 
-            training, group classes, learning materials, pack walks, and overnight stays. There is always 
-            more to learn from rescue dogs and nothing is more rewarding than seeing them grow into the 
-            confident, happy dogs they deserve to be! I graduated from CATCH Canine Trainers Academy in 2020. 
-            I became a CPDT-KA certified trainer in 2021, fear-free certified in 2021, and am a member of the 
-            Association of Professional Dog Trainers.
-        </p>
-        
-        <p class="bottom-about-me">
-            Positive reinforcement/training philosophy
-            The science behind dog behavior and training has come a long way over the years and now has 
-            proven the effectiveness of positive reinforcement over punishment. Teaching a dog what to do 
-            and rewarding them is more effective than simply punishing them for doing something wrong. They 
-            need to clearly know what we want them to do, and they need to want to do it. Punishment and 
-            corrections increase stress on our dogs and hurts our relationship with them. On the other hand, 
-            positive reinforcement methods make learning exciting, good behavior fun, and builds a stronger bond. 
-            Training should be enjoyable for everyone involved!
-            I believe in looking at each dog as a whole individual. They all are motivated by 
-            different rewards and have different mental and physical needs. By fulfilling all a dog’s needs
-            and building up confidence, they are not only happier and healthier, but ready to listen and learn!
+        <hr>
+        <div class="about-lana">
+            <p>My Dog and Training Buddy:</p>
+
+            <p> I own one dog named <strong>Lana</strong>. She is one of the friendliest and well behaved dogs I have ever had the pleasure of owning, 
+                but she didn't start out that way.
+                She was originally abandoned after she was bred out and abandoned once again by her first adoptive family for 
+                destructive behavior and aggressiveness towards cats. <br>
+                Now she has become not only a family member but a valued member of my training team. She has been frequently used by rescues and personal clients
+                in socializing and is an pristine example of what training can accomplish.
+                 
+            </p>
+        </div>
+        <div class="about-grid-setup">
+
             
-        </p>
+            <div class="top-about-me">
+                <p>
+                    <span class="about-span">My Experiences</span>
+                    <br> <br>
+                    I have been working professionally with dogs since 2017 and spend a lot of time 
+                    volunteering with local animal rescues and shelters. I have fostered dogs in the past, 
+                    but since having a baby, my focus has been helping foster parents with free one on one 
+                    training, group classes, learning materials, pack walks, and overnight stays. There is always 
+                    more to learn from rescue dogs and nothing is more rewarding than seeing them grow into the 
+                    confident, happy dogs they deserve to be! I graduated from CATCH Canine Trainers Academy in 2020. 
+                    I became a CPDT-KA certified trainer in 2021, fear-free certified in 2021, and am a member of the 
+                    Association of Professional Dog Trainers.
+                </p>
+                
+            </div>
+            <div class="about-me-img img1">
+                
+                <img src="{% static 'pawsapp/images/about_me_lana.jpg' %}" alt="">
+            </div>
+            
+            <div  class="bottom-about-me" >
+                <p>
+                    <span class="about-span">Our Methodology </span> 
+                    <br> <br>
+                    Positive reinforcement/training philosophy
+                    The science behind dog behavior and training has come a long way over the years and now has 
+                    proven the effectiveness of positive reinforcement over punishment. Teaching a dog what to do 
+                    and rewarding them is more effective than simply punishing them for doing something wrong. They 
+                    need to clearly know what we want them to do, and they need to want to do it. Punishment and 
+                    corrections increase stress on our dogs and hurts our relationship with them. On the other hand, 
+                    positive reinforcement methods make learning exciting, good behavior fun, and builds a stronger bond. 
+                    Training should be enjoyable for everyone involved!
+                    I believe in looking at each dog as a whole individual. They all are motivated by 
+                    different rewards and have different mental and physical needs. By fulfilling all a dog’s needs
+                    and building up confidence, they are not only happier and healthier, but ready to listen and learn!
+                    
+                </p>
+            </div>
+            <div class="about-me-img img2">
+                <img src="{% static 'pawsapp/images/lana-dumb-face.jpg' %}" alt="">
+
+            </div>
+            
+        </div>
+        
+        <hr>
+        
+        <div class="wife-and-pups about-me-img">
+            
+            <img src="{% static 'pawsapp/images/about_me_group.jpg' %}" alt="">
+            
+        </div>
+        <div class="satisfied-customers about-me-img">
+        
+            <img src="{% static 'pawsapp/images/marshall.jpg' %}" alt="">
+            <img src="{% static 'pawsapp/images/ramona.jpg' %}" alt="">
+            <img src="{% static 'pawsapp/images/kali.jpg' %}" alt="">
+            <img src="{% static 'pawsapp/images/lab_puppy.jpg' %}" alt="">
+            <img src="{% static 'pawsapp/images/manny.jpg' %}" alt="">
+            <img src="{% static 'pawsapp/images/big_tongue.jpg' %}" alt="">
+
+            
+            
+        </div>
         
     </div>
-    
     
     
     
