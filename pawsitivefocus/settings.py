@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-from .secrets import DJANGO_KEY
+from .secrets import DJANGO_KEY, app_pass, app_email, app_port, app_host, email_backend
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -127,11 +127,11 @@ STATIC_URL = '/static/'
 LOGIN_URL = 'users:log_in'
 LOGOUT_REDIRECT_URL= 'pawsapp:index'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'tadashicroy@gmail.com'
-EMAIL_HOST_PASSWORD = 'fhlbzxegxlyerdjc'
+EMAIL_BACKEND = email_backend
+EMAIL_HOST = app_host
+EMAIL_PORT = app_port
+EMAIL_HOST_USER = app_email
+EMAIL_HOST_PASSWORD = app_pass
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
