@@ -1,40 +1,4 @@
 
-base_app = new Vue({
-    el: '#base-head',
-    delimiters: ['[[',']]'],
-    data:{
-        stuff: 'things',
-    },
-    methods:{
-
-
-
-
-
-
-    },
-    
-
-
-
-
-
-
-
-
-
-})
-
-
-
-
-
-
-
-
-
-
-
 main_app = new Vue({
     el:'#app',
     delimiters: ['[[', ']]'],
@@ -112,7 +76,12 @@ main_app = new Vue({
             let response = await axios(config) 
 
             main_app.message = response.data.message
-            main_app.userInfo = response.data.user_info
+            
+            
+            if (url_path === 'update_user/'){
+
+                main_app.userInfo = response.data.user_info
+            }
 
             this.phone_number= '',
             this.first_name= '',

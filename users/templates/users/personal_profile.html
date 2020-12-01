@@ -31,6 +31,7 @@
                 <p>
                    <em>Zipcode:</em> <br> [[userInfo.zipcode]]
                 </p>
+                
                 <p>
                     <em>Share:</em> <br> [[userInfo.share_pupps]]  
                 </p>
@@ -125,14 +126,14 @@
                             <label for=" size">Dog's Size: </label>
                             <select v-model= "size"  name="size" id="size">
                                 <option value="" disabled> Size Required</option>
-                                <option value="S">Small</option>
-                                <option value="M">Medium</option>
-                                <option value="L">Large</option>
+                                <option value="S">Small (Less Than 25 Pounds)</option>
+                                <option value="M">Medium (25 to 75 Pounds) </option>
+                                <option value="L">Large (Greater than 75 Pounds)</option>
                             </select>
                         </div>
                         
                         <div>
-                            <label for=" temperment">Dog's Temperment: </label>
+                            <label for=" temperment">Dog's Temperament: </label>
                             <input v-model="temperment" name="temperment" required>
                         </div>
                         <div>
@@ -175,14 +176,17 @@
                                     Size: [[item.size]]
                                 </li>
                                 <li>
-                                    Temperment: <span v-if="item.temperment">[[item.temperment]] </span>
+                                    Temperament: <span v-if="item.temperment">[[item.temperment]] </span>
                                     <span v-else>Not Added</span>
                                     
                                 </li>
                                 <li>
-                                    Crate Trained: <span v-if="item.temperment">[[item.crate_trained]] </span>
-                                    <span v-else>Not Added</span>
                                     
+                                    
+                                    Crate Trained: <span v-if="item.crate_trained">[[item.crate_trained]] </span>
+                                    <span v-else>Not Added</span>
+                                
+                                        
                                     
                                 </li>
                                 <li>
@@ -219,12 +223,12 @@
                             Size: [[item.size]]
                         </li>
                         <li>
-                            Temperment: <span v-if="item.temperment">[[item.temperment]] </span>
+                            Temperament: <span v-if="item.temperment">[[item.temperment]] </span>
                             <span v-else>Not Added</span>
                             
                         </li>
                         <li>
-                            Crate Trained: <span v-if="item.temperment">[[item.crate_trained]] </span>
+                            Crate Trained: <span v-if="item.crate_trained">[[item.crate_trained]] </span>
                             <span v-else>Not Added</span>
                             
                             

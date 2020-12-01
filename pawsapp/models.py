@@ -3,6 +3,7 @@ from django.db.models.deletion import CASCADE
 from django.db.models.fields.related import ForeignKey
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import User
+from django.utils import timezone
 from users.models import UserProfile, Dog
 
 
@@ -10,6 +11,8 @@ from users.models import UserProfile, Dog
 
 class Appointment(models.Model):
 
+    created_at = models.CharField(max_length = 100, default = timezone.now())
+    replied_to = models.BooleanField(default=False)
     owner = models.CharField(max_length=100)
     email = models.EmailField(max_length= 50,blank=True, null=True)
     address= models.CharField(max_length= 50, blank=True, null=True)
