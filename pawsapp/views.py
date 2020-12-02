@@ -5,7 +5,6 @@ from .models import Appointment
 from django.utils import timezone
 from django.utils.timezone import is_aware, make_aware
 from datetime import datetime, time
-# from django.core.mail import EmailMessage
 from django.core.mail import send_mail
 
 
@@ -142,7 +141,7 @@ def get_deets(request):
         customer.save()
         send_mail(
                     'Appointment Created!',
-                    f'Person: {owner} \n {email} \nDog: {dog_name} \nTime Created and Details{dog_detail}\nSee the ADMIN Panel for more information',
+                    f'Person: {owner} \n {email} \nDog: {dog_name} \nTime Created: {datetime.now()} \nDetails: {dog_detail}\nSee the ADMIN Panel for more information',
                     'from@yourdjangoapp.com',
                     ['tadashicroy@gmail.com'],
                     fail_silently=False,

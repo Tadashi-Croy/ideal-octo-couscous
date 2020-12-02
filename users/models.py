@@ -76,7 +76,7 @@ class Dog(models.Model):
 
 
     def __str__(self):
-        return f'{self.owner}: {self.dog_name}'
+        return f'Owner: {self.owner} ::: Dog: {self.dog_name}'
 
 
 class DogForm(ModelForm):

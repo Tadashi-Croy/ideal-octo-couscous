@@ -242,7 +242,7 @@ def update_dog(request):
 
 
 
-    dog_name = form.get('dog_name').title()
+    dog_name = form.get('dog_name').title().strip()
     age = form.get('age')
 
     if not age.isdigit():

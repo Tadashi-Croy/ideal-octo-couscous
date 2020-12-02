@@ -46,7 +46,7 @@ body{
     color: rgb(27, 27, 27);
     position: sticky;
     top: 0;
-    background-color: rgba(196, 233, 255, 0.719);
+    background-color: rgba(196, 233, 255, 0.199);
 }
 
 .hero{
@@ -1033,6 +1033,7 @@ form> .entry{
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     background: red;
+    box-shadow: -4px -8px 11px -4px rgba(0,0,0,0.4);
 }
 .heart{
     float: left;
@@ -1041,10 +1042,11 @@ form> .entry{
     width: 75px;
     background-color: red;
     top: 13px;
-    left: 260px;
+    left: 250px;
     transform: rotate(45deg) scale(.4);
     animation: beating 1s ease 1s 3;
     animation-direction: alternate;
+    box-shadow: -4px -8px 11px -4px rgba(0,0,0,0.4);
 }
 .heart::after{
     position: relative;
@@ -1057,8 +1059,39 @@ form> .entry{
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     background: red;
+    box-shadow: -4px -8px 11px -9px rgba(0,0,0,0.4);
+}
+.h0{
+    transform: rotate(225deg) scale(.4);
+}
+.h1{
+    position: absolute;
+    top: 120px;
+    left: 223px;
+    transform: scale(.13) rotate(8deg);
 
 }
+.h2{
+    position: absolute;
+    top: 103px;
+    left: 238px;
+    transform: scale(.13) rotate(25deg);
+
+}.h3{
+    position: absolute;
+    top: 103px;
+    left: 263px;
+    transform: scale(.13) rotate(70deg);
+
+}.h4{
+    position: absolute;
+    top: 120px;
+    left: 275px;
+    transform: scale(.13) rotate(100deg);
+
+}
+
+
 
 .black-background{
     background: rgba(0, 0, 0, 0.151);

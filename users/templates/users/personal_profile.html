@@ -149,8 +149,8 @@
                             </textarea>
                         </div>
                     </div>
-                    <button class="form-btn" @click= 'personalProfiler("new_dog/")'>add new</button>
-                    <button class="form-btn" @click= 'personalProfiler("update_dog/")'>  update</button>
+                    <button class="form-btn" @click= 'personalProfiler("new_dog/")'> add new</button>
+                    <button class="form-btn" @click= 'personalProfiler("update_dog/")'> update</button>
                 </div>
 
                 <div class="registered-dogs">
@@ -176,15 +176,13 @@
                                     Size: [[item.size]]
                                 </li>
                                 <li>
-                                    Temperament: <span v-if="item.temperment">[[item.temperment]] </span>
-                                    <span v-else>Not Added</span>
+                                    Temperament: [[item.temperment]]
                                     
                                 </li>
                                 <li>
                                     
                                     
-                                    Crate Trained: <span v-if="item.crate_trained">[[item.crate_trained]] </span>
-                                    <span v-else>Not Added</span>
+                                    Crate Trained: [[item.crate_trained]]
                                 
                                         
                                     
@@ -223,13 +221,11 @@
                             Size: [[item.size]]
                         </li>
                         <li>
-                            Temperament: <span v-if="item.temperment">[[item.temperment]] </span>
-                            <span v-else>Not Added</span>
+                            Temperament:[[item.temperment]]
                             
                         </li>
                         <li>
-                            Crate Trained: <span v-if="item.crate_trained">[[item.crate_trained]] </span>
-                            <span v-else>Not Added</span>
+                            Crate Trained: [[item.crate_trained]]
                             
                             
                         </li>
