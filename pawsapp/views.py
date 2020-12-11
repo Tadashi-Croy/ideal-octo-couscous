@@ -133,7 +133,7 @@ def get_deets(request):
             adult_training =adult_training,
             dog_detail =dog_detail,
             heard_about = referred,
-            req_appt1 = time1,
+            req_appt1 = time1_aware,
             req_appt2 = time2,
             req_appt3 = time3,
         )

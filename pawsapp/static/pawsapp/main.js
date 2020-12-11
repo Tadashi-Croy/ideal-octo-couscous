@@ -26,6 +26,11 @@ main_app = new Vue({
         details:'',
         tester: '',
         dogDelete: '',
+        dogPhotos: ['pawsapp/images/marshall.jpg', 'pawsapp/images/ramona.jpg', 'pawsapp/images/kali.jpg', 'pawsapp/images/lab_puppy.jpg',
+        'pawsapp/images/manny.jpg', 'pawsapp/images/big_tongue.jpg' ],
+        pictureInUse: 'pawsapp/images/marshall.jpg',
+
+
 
         // Customer Form Data 
 
@@ -34,9 +39,6 @@ main_app = new Vue({
         userInfo: ''
 
 
-    },
-    created() {
-  
     },
     methods: {
         personalProfiler: async function(url_path){
@@ -114,16 +116,18 @@ main_app = new Vue({
             main_app.dogDelete = id
             main_app.personalProfiler('dog_deleter/')
 
-        }
+        },
+        dogTimer: function(){
+            let timr = setInterval(function(){
+                let i = (main_app.dogPhotos.indexOf(main_app.pictureInUse) +1) % main_app.dogPhotos.length
+                main_app.pictureInUse = main_app.dogPhotos[i]
+            }, 4000)
+        },
         
 
     },
     updated() {
-      
         
-
-        
-
     },
     
     created(){
@@ -162,8 +166,14 @@ main_app = new Vue({
             
         }
 
+
+
+
+
+
         a()
         b()
+        
         
         
 
