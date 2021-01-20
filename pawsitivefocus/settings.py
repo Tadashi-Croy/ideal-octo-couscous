@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+from decouple import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +39,7 @@ STATICFILES_DIRS = (
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY= os.getenv('DJANGO_KEY')
+SECRET_KEY= config('DJANGO_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -96,10 +98,8 @@ WSGI_APPLICATION = 'pawsitivefocus.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': '../my.cnf',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
 
@@ -145,11 +145,11 @@ STATIC_URL = '/static/'
 LOGIN_URL = 'users:log_in'
 LOGOUT_REDIRECT_URL= 'pawsapp:index'
 SECURE_SSL_REDIRECT = True
-EMAIL_BACKEND = os.getenv('email_backend')
-EMAIL_HOST = os.getenv('app_host')
-EMAIL_PORT = os.getenv('app_port')
-EMAIL_HOST_USER = os.getenv('app_email')
-EMAIL_HOST_PASSWORD = os.getenv('app_pass')
+EMAIL_BACKEND = config('email_backend')
+EMAIL_HOST = config('app_host')
+EMAIL_PORT = config('app_port')
+EMAIL_HOST_USER = config('app_email')
+EMAIL_HOST_PASSWORD = config('app_pass')
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 SESSION_COOKIE_SECURE= True
