@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-from .secrets import DJANGO_KEY, app_pass, app_email, app_port, app_host, email_backend
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,7 +30,7 @@ os.path.join(BASE_DIR, 'static'),
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY= DJANGO_KEY
+SECRET_KEY= os.getenv('DJANGO_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -139,11 +138,11 @@ STATIC_URL = '/static/'
 LOGIN_URL = 'users:log_in'
 LOGOUT_REDIRECT_URL= 'pawsapp:index'
 SECURE_SSL_REDIRECT = True
-EMAIL_BACKEND = email_backend
-EMAIL_HOST = app_host
-EMAIL_PORT = app_port
-EMAIL_HOST_USER = app_email
-EMAIL_HOST_PASSWORD = app_pass
+EMAIL_BACKEND = os.getenv('email_backend')
+EMAIL_HOST = os.getenv('app_host')
+EMAIL_PORT = os.getenv('app_port')
+EMAIL_HOST_USER = os.getenv('app_email')
+EMAIL_HOST_PASSWORD = os.getenv('app_pass')
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 SESSION_COOKIE_SECURE= True
