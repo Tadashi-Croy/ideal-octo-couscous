@@ -9,12 +9,21 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 from .secrets import DJANGO_KEY, app_pass, app_email, app_port, app_host, email_backend
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Static asset configuration
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = (
+os.path.join(BASE_DIR, 'static'),
+)
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,9 +35,9 @@ SECRET_KEY= DJANGO_KEY
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', '104.225.208.26']
 
 
 # Application definition
@@ -81,10 +90,13 @@ WSGI_APPLICATION = 'pawsitivefocus.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': '../my.cnf',
+        },
     }
 }
+
 
 
 # Password validation
@@ -126,7 +138,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_URL = 'users:log_in'
 LOGOUT_REDIRECT_URL= 'pawsapp:index'
-
+SECURE_SSL_REDIRECT = True
 EMAIL_BACKEND = email_backend
 EMAIL_HOST = app_host
 EMAIL_PORT = app_port
@@ -134,4 +146,5 @@ EMAIL_HOST_USER = app_email
 EMAIL_HOST_PASSWORD = app_pass
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-
+SESSION_COOKIE_SECURE= True
+CSRF_COOKIE_SECURE= True
