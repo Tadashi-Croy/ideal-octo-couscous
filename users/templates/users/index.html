@@ -89,21 +89,21 @@ Users Index/ Happy Customers Page
         
         <div class="wife-and-pups about-me-img">
             
-            <img src="{% static 'pawsapp/images/about_me_group.jpg' %}" alt="Group Dog Picture">
+            <img v-on:load.once="dogTimer()" src="{% static 'pawsapp/images/about_me_group.jpg' %}" alt="Group Dog Picture">
             
         </div>
 
         <div class="satisfied-customers-header">
 
             <h2>Some Happy Customers!</h2>
-            <div class="satisfied-customers about-me-img">
-
-                <transition name = 'slide'>
-                
-                    <img v-on:load.once="dogTimer()" :src="'../../static/' + pictureInUse " alt="Dog Picture">
+            <div  class="satisfied-customers about-me-img">
+            
+                <transition name = 'fade' tag="img">
                     
+                    <img  :key="'../../static/' + pictureInUse " :src="'../../static/' + pictureInUse " alt="Dog Picture">
+                
                 </transition>
-
+        
 
                 <!-- <img src="{% static 'pawsapp/images/marshall.jpg' %}" alt="Dog Picture">
                 <img src="{% static 'pawsapp/images/ramona.jpg' %}" alt="Dog Picture">
