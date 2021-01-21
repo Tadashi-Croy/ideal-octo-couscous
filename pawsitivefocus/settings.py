@@ -45,7 +45,7 @@ SECRET_KEY= config('DJANGO_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '104.225.208.26','https://pawsitive-focus.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
