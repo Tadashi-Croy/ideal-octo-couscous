@@ -16,6 +16,9 @@ def index(request):
 
     return render(request, 'users/index.html')
 
+
+
+@login_required # Remove When adding Users
 def sign_up(request):
     
     if request.POST:
@@ -49,6 +52,7 @@ def sign_up(request):
 
     return render(request, 'users/sign_up.html')
 
+@login_required # Remove When adding Users
 def log_in(request):
 
     if request.POST:

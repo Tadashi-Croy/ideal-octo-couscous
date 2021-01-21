@@ -45,6 +45,14 @@
                 Book Appointment
             </a>
             {% if not user.is_authenticated %}
+            
+            
+            {% else %}
+            
+
+            <!-- Add Later! -->
+            <!-- All I did was move below the if statement -->
+
 
             <a href=" {% url 'users:sign_up' %}">
                 Sign Up
@@ -54,7 +62,6 @@
                 Log In
             </a>
             
-            {% else %}
             
             <a href="{% url 'users:personal_profile' %}">Profile Page</a>
 

@@ -43,7 +43,7 @@ SECRET_KEY= config('DJANGO_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '104.225.208.26']
 
@@ -146,9 +146,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_URL = 'users:log_in'
+# LOGIN_URL = 'users:log_in'
+LOGIN_URL = 'pawsapp:index'
+
+
 LOGOUT_REDIRECT_URL= 'pawsapp:index'
-SECURE_SSL_REDIRECT = True
 EMAIL_BACKEND = config('email_backend')
 EMAIL_HOST = config('app_host')
 EMAIL_PORT = config('app_port')
@@ -158,3 +160,4 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 SESSION_COOKIE_SECURE= True
 CSRF_COOKIE_SECURE= True
+SECURE_SSL_REDIRECT = True

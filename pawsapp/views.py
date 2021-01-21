@@ -6,14 +6,12 @@ from django.utils import timezone
 from django.utils.timezone import is_aware, make_aware
 from datetime import datetime, time
 from django.core.mail import send_mail
-
-
+from decouple import config
+import os
 # Create your views here.
 
 def index(request):
-
-
-
+    
     return render(request, 'pawsapp/index.html')
     
 
