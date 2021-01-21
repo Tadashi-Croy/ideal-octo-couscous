@@ -1,1 +1,1 @@
-web: gunicorn ideal-octo-couscous.pawsitivefocus.wsgi --log-file - --log-level debug
+web: gunicorn pawsitivefocus.pawsitivefocus.wsgi --log-file - --log-level debug

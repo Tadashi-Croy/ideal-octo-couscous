@@ -76,7 +76,7 @@ MIDDLEWARE_CLASSES = ('whitenoise.middleware.WhiteNoiseMiddleware',)
 
 
 
-ROOT_URLCONF = 'pawsitivefocus.urls'
+ROOT_URLCONF = 'pawsitivefocus.pawsitivefocus.urls'
 
 TEMPLATES = [
     {
