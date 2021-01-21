@@ -15,7 +15,7 @@ from decouple import config
 import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -76,7 +76,7 @@ MIDDLEWARE_CLASSES = ('whitenoise.middleware.WhiteNoiseMiddleware',)
 
 
 
-ROOT_URLCONF = 'pawsitivefocus.pawsitivefocus.urls'
+ROOT_URLCONF = 'pawsitivefocus.urls'
 
 TEMPLATES = [
     {
