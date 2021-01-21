@@ -1,1 +1,1 @@
-web: python pawsitivefocus/manage.py runserver 0.0.0.0:$PORT
+web: gunicorn pawsitivefocus.wsgi --log-file -
