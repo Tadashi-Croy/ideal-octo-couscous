@@ -158,7 +158,7 @@ EMAIL_HOST_USER = config('app_email')
 EMAIL_HOST_PASSWORD = config('app_pass')
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-SESSION_COOKIE_SECURE= True
-CSRF_COOKIE_SECURE= True
-SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE= True
+# CSRF_COOKIE_SECURE= True
+# SECURE_SSL_REDIRECT = True
 django_heroku.settings(locals())
