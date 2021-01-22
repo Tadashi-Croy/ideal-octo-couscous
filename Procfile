@@ -1,1 +1,1 @@
-web: gunicorn pawsitivefocus.wsgi 
+web: gunicorn pawsitivefocus.wsgi --log-file - --log-level debug
