@@ -16,5 +16,5 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ََpawsitivefocus.settings')
 application = get_wsgi_application()
 
 
-from pawsitivefocus.wsgi import pawsitivefocusApplication
-application = pawsitivefocusApplication(application)
+# from pawsitivefocus.wsgi import pawsitivefocusApplication
+# application = pawsitivefocusApplication(application)
