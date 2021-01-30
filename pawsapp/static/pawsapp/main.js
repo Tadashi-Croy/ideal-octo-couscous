@@ -27,7 +27,7 @@ main_app = new Vue({
         tester: '',
         dogDelete: '',
         dogPhotos: ['pawsapp/images/marshall.jpg', 'pawsapp/images/ramona.jpg', 'pawsapp/images/kali.jpg', 'pawsapp/images/lab_puppy.jpg',
-        'pawsapp/images/manny.jpg', 'pawsapp/images/big_tongue.jpg' ],
+        'pawsapp/images/Manny.jpg', 'pawsapp/images/big_tongue.jpg' ],
         pictureInUse: 'pawsapp/images/marshall.jpg',
 
 
