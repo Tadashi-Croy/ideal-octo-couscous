@@ -22,6 +22,7 @@ a{
 
 }
 body{
+    min-width: 300px;
     height: 100%;
     background-color: rgba(196, 233, 255, 0.925);
 }
@@ -1165,3 +1166,105 @@ margin: 0;
 
 
 /* VUE ANIMATIONS END */
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 100px){
+
+    header{
+        margin: 0;
+
+    }
+    #base-head{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        color: rgb(27, 27, 27);
+        margin:0;
+        padding:0;
+        /* position: sticky;
+        top: 0; */
+        background-color: rgba(196, 233, 255, 0.199);
+    }
+
+    .hero{
+        width: 100%;
+        margin: 0;
+    }
+    .hero> *{
+        margin: 0;
+        background: rgba(255, 255, 255, 0.575);
+        
+    }
+    .hero> h2{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        border: 2px solid rgba(255, 255, 255, 0.301);
+        box-shadow: 3px 7px 13px -7px rgba(0,0,0,1);
+        color: rgb(63, 63, 63);
+        font-size: 2rem;
+        border-radius: 4px;
+    }
+    .hero> a{
+        background: none;
+    }
+    .hero >a >button{
+        border: none;
+        font-weight: 600;
+        color: rgb(153, 153, 153);
+        background-color: rgba(255, 255, 255, 0.521);
+        border-radius: 8px;
+        cursor: pointer;
+        padding: .2rem;
+        box-shadow: 3px 7px 13px -7px rgba(0,0,0,1);
+
+    }
+
+    .hero >a :hover{
+        opacity: .9;
+        transform: scale(1.1);
+        
+    }
+
+
+
+    .header-links{
+        display: flex;
+        color: black;
+        
+    }
+
+    .header-links >*{
+        font-family: 'Montserrat', sans-serif;
+        font-size: .8rem;
+        margin: .3rem .25rem;
+        padding: .5rem;
+        border: 1px solid rgba(0, 0, 0, 0.103);
+        border-radius: 4px;
+        height: 28%;
+        color: rgb(104, 104, 104);;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.692);
+        box-shadow: 0px 3px 7px -3px rgba(0,0,0,0.59);
+    }
+
+    .header-links :hover{
+        transform: scale(.9);
+        background-color: rgb(146, 186, 231);
+        color: rgb(255, 255, 255);
+    }
+
+
+
+
+
+}

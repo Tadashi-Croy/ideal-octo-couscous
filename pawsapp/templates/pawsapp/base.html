@@ -42,14 +42,14 @@
                 Home
             </a>
             
-            <a href="{% url 'pawsapp:get_deets' %}">
-                Book Appointment
-            </a>
             {% if not user.is_authenticated %}
             
             
             {% else %}
             
+            <a href="{% url 'pawsapp:get_deets' %}">
+                Book Appointment
+            </a>
 
             <!-- Add Later! -->
             <!-- All I did was move below the if statement -->
