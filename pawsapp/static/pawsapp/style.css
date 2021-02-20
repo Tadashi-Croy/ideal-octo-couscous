@@ -27,6 +27,7 @@ body{
     background-color: rgba(196, 233, 255, 0.925);
 }
 #app{
+    min-width: 300px;
     height: 100%;
 }
 
@@ -1178,11 +1179,15 @@ margin: 0;
 
 
 
-@media screen and (min-width: 100px){
+@media screen and (min-width: 10px){
+    body{
+        min-width: 350px;
+
+    }
+
 
     header{
         margin: 0;
-
     }
     #base-head{
         display: flex;
@@ -1191,8 +1196,6 @@ margin: 0;
         color: rgb(27, 27, 27);
         margin:0;
         padding:0;
-        /* position: sticky;
-        top: 0; */
         background-color: rgba(196, 233, 255, 0.199);
     }
 
@@ -1263,7 +1266,209 @@ margin: 0;
         color: rgb(255, 255, 255);
     }
 
+    /* Index */
+    
+    .index-body{
+        width: 100%;
+        height: 100%;
+        margin-bottom: 4rem;
+        padding-bottom: 3rem;
+       
+    
+    }
+    .hero-pic{
+        height: 200px;
+    }
+    .hero-pic> div{
+        font-family: 'Montserrat', sans-serif;
+        color: rgb(36, 59, 90);
+        font-weight: 600;
+        font-size: .8rem;
+        text-align: center;
+        width: 40%;
+        margin: 0rem 1rem;
+        background: rgba(255, 255, 255, 0.021);
+    }
+    
+    .index-content{
+        height: 100vh;
+        margin: 0 0.1rem;
+        padding: 0;
+    
+    
+    }
+    .index-content-div{
+        margin-bottom: 0;
+        height: 100vh;
+    }
+    .index-intro{
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        margin: 1rem;
+        padding: .2rem;
+        font-size: 2rem;
+        text-align: center;
+    }
+    .index-intro> h4{
+        text-decoration: underline dotted;
+        font-size: 3.5rem;
+    }
+    .index-intro>p{
+        font-size: 1.25rem;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        margin-top: .5rem;
+    
+    
+    }
+    .index-intro> *{
+        margin: .2rem;
+    }
+    
+    .service-intro{
+        font-size: 2rem;
+    }
+    
+    
+    .service-holder{
+        width: 100%;
+        height: 20vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
 
+    }
+    .service-holder >img{
+        display: none;
+        
+    }
+    .service{
+        text-align: center;
+        background: none;
+        font-size: .8rem;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        box-shadow: none;
+    }
+    .service> img{
+       display: none;
+    }
+    .service> p{
+        width: 100%;
+        padding: 0;
+        margin-top: 1rem;
+        font-size: .8rem;
+        font-weight: 600;
+        color: rgb(77, 77, 77);
+        border: none;
+        background: rgba(255, 255, 255, 0.192);
+        
+    }
+    .spanner{
+        padding: .3rem;
+        font-size: 1.2rem;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.301);
+    }
+    .extra-space{
+        height: 35px;
+    }
+    
+    .update{
+        font-size: .7rem;
+        color: rgb(255, 0, 0);
+        margin-bottom: .25rem;
+    }
+    /* Base Footer Section Start */
+
+    footer{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        position: relative;
+    
+
+    }
+    .links> *{
+        margin: .1rem 0;
+    }
+    .links{
+        text-align: center;
+        padding: .1rem;
+        font-size: .9rem;
+    }
+    .links> div{
+        display: flex;
+        justify-content: space-evenly;
+        font-size: .9rem;
+        text-decoration: underline;
+    }
+
+    .cert{
+        display: flex;
+        justify-content: space-evenly;
+        padding: .1rem;
+        font-size: .7rem;
+        background-color: rgb(255, 255, 255);
+        
+
+
+    }
+    .cert >*{
+        margin: 0;
+    }
+    .cert >p{
+        text-align: center;
+    }
+
+    #apdt-img{
+        position: relative;
+        left: 30px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    #ccdt-img{
+        position: relative;
+        left: 30px;
+        height: 50px;
+        border-radius: 50%;
+
+    }
+    #bite-img{
+        position: relative;
+        left: 30px;
+        width: 50px;
+        border-radius: 8px;
+
+    }
+
+    .contact-info{
+        display: flex;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.747);
+        font-size: .9rem;
+    }
+    .info-top{
+        color: rgb(116, 116, 116);
+        font-weight: 600;
+    }
+    .font-awesome-imgs{
+        position: relative;
+        left: 30px;
+        top: 10px;
+        color: rgb(119, 119, 119);
+        padding: 0;
+        font-size: 1.5rem;
+    }
+    .font-awesome-imgs >a{
+        font-size: 2rem;
+        margin-top: .3rem;
+        padding-top: .3rem;
+        
+    }
+
+    /* Base Footer Section End */
 
 
 
