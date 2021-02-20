@@ -1179,7 +1179,7 @@ margin: 0;
 
 
 
-@media screen and (min-width: 10px){
+@media screen and (max-width: 450px){
     body{
         min-width: 350px;
 
@@ -1424,20 +1424,20 @@ margin: 0;
 
     #apdt-img{
         position: relative;
-        left: 30px;
+        left: 20px;
         height: 50px;
         border-radius: 50%;
     }
     #ccdt-img{
         position: relative;
-        left: 30px;
+        left: 20px;
         height: 50px;
         border-radius: 50%;
 
     }
     #bite-img{
         position: relative;
-        left: 30px;
+        left: 20px;
         width: 50px;
         border-radius: 8px;
 
@@ -1448,6 +1448,7 @@ margin: 0;
         justify-content: center;
         background-color: rgba(255, 255, 255, 0.747);
         font-size: .9rem;
+        padding: .2rem;
     }
     .info-top{
         color: rgb(116, 116, 116);
@@ -1455,17 +1456,21 @@ margin: 0;
     }
     .font-awesome-imgs{
         position: relative;
-        left: 30px;
+        left: 25px;
         top: 10px;
         color: rgb(119, 119, 119);
         padding: 0;
         font-size: 1.5rem;
+        
     }
     .font-awesome-imgs >a{
         font-size: 2rem;
         margin-top: .3rem;
         padding-top: .3rem;
         
+    }
+    #mail{
+        font-weight: 600;
     }
 
     /* Base Footer Section End */
