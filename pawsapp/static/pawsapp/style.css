@@ -1372,7 +1372,7 @@ margin: 0;
         background: rgba(255, 255, 255, 0.301);
     }
     .extra-space{
-        height: 35px;
+        height: 20px;
     }
     
     .update{
@@ -1474,6 +1474,137 @@ margin: 0;
     }
 
     /* Base Footer Section End */
+
+    /* ABOUT ME PAGE START */
+
+    .about-intro{
+        background: rgba(255, 255, 255, 0.664);
+        text-align: center;
+        padding: .5rem;
+    }
+    .about-grid-setup{
+        display: flex;
+        flex-direction: column;
+    }
+    .mission{
+        margin: .25rem;
+    }
+    .mission>p{
+        width: 90%;
+    }
+    .about-lana{
+        width: 90%;
+        margin: 1.5rem auto;
+    }
+    .about-lana>p{
+        margin: .3rem 0;
+        padding: .2rem;
+    }
+    .about-me-img{
+        margin: auto;
+    }
+    .top-about-me{
+        width: 100%;
+        margin: auto;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.24);
+    }
+    .top-about-me>*{
+        margin: auto;
+        text-align: center;
+        width: 95%;
+    }
+    .bottom-about-me{
+        text-align: center;
+        background: rgba(255, 255, 255, 0.24);
+    
+    }
+    .about-span{
+        margin:0;
+    }
+    .wife-and-pups> img{
+     width: 95vw;
+     height: 90%;
+    }
+    .satisfied-customers-header{
+        display: none;
+    }
+    .img2> img{
+        width: 95vw;
+    }
+
+    /* ABOUT ME PAGE END */
+
+    /* References Start */
+
+    .reference-page-body{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+    }
+    
+    .reference-page-header{
+     
+        width: 85%;
+        padding: 1rem;
+
+    }
+    .reference-page-header > h2{
+        color: rgba(194, 9, 49, 0.671);
+    }
+
+    .heart{
+        display: none;
+    }
+
+    .more-links{
+        display: flex;
+        flex-direction: column;
+        font-weight: 600;
+        color: rgb(56, 56, 56);
+    }
+
+    .more-links> *{
+        background: rgba(255, 255, 255, 0.568);
+        margin: .25rem 0;
+        border: 1px solid black;
+        border-radius: 8px;
+        padding: .2rem;
+        color: rgb(0, 0, 0);
+    }
+    .links{
+        font-weight: 600;
+    }
+    .resc-links> a{
+        background: rgba(207, 0, 0, 0.404);
+        border: 3px double black;
+        border-radius: 8px;
+        margin: .2rem;
+        padding: .2rem;
+        color: white;
+        
+    }
+
+
+
+    /* References End */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
