@@ -164,3 +164,9 @@ def references(request):
 
 
     return render(request, 'pawsapp/references_page.html')
+
+
+
+def contact(request):
+
+    return render(request, 'pawsapp/contact.html')
